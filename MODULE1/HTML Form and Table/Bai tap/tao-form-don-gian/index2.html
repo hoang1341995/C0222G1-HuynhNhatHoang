@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo form đơn giản</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+
+<form class="w3-container">
+    <div class="w3-container w3-green"> <h1>ĐĂNG KÝ HỌC VIÊN</h1></div>
+    <p>
+        <label>Họ và tên</label>
+        <input class="w3-input" name="yourname" type="text">
+    </p>
+    <p>
+        <label>Ngày sinh</label>
+        <input class="w3-input" name="yourname" type="text">
+    </p>
+    <p>
+        <label>Giới tính</label>
+        <fieldset>
+    <input class="w3-radio" type="radio" name="gioitinh" value="nam">Nam
+    <input class="w3-radio" type="radio" name="gioitinh" value="nu">Nữ
+        </fieldset>
+    </p>
+    <p>
+        <label>Địa chỉ</label>
+        <textarea class="w3-input" name="diachi"> </textarea>
+    </p>
+    <p>
+        <label>Lớp</label>
+        <select class="w3-select" name="lop">
+            <option value="C0222G1" name="C0222G1">C0222G1</option>
+            <option value="C0222G2" name="C0222G2">C0222G2</option>
+        </select>
+    </p>
+    <p>
+        <label>Email</label>
+        <input class="w3-input" name="Email" type="text">
+    </p><p>
+        <label>Điện thoại</label>
+        <input class="w3-input" name="sdt" type="text">
+    </p>
+    <p>
+        <input class="w3-button w3-orange" type="submit" value="Đăng ký">
+        <input class="w3-button w3-orange" type="reset" value="Nhập lại">
+    </p>
+
+</form>
+
+<style>
+    body{
+        background-color: antiquewhite;
+    }
+</style>
+</body>
+</html>
