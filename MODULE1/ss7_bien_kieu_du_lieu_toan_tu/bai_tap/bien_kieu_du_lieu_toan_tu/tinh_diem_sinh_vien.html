@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biến, kiểu dữ liệu toán tử</title>
+</head>
+<body>
+<script>
+    let DiemVatLy
+    let DiemHoaHoc
+    let DiemSinhHoc
+    DiemVatLy = prompt("Nhập điểm môn vật lý");
+    DiemHoaHoc = prompt("Nhập điểm môn hóa học");
+    DiemSinhHoc = prompt("Nhập điểm môn sinh học");
+    let VatLy = parseInt(DiemVatLy);
+    let HoaHoc = parseInt(DiemHoaHoc);
+    let SinhHoc = parseInt(DiemSinhHoc);
+    let DiemTong = VatLy + HoaHoc + SinhHoc;
+    let DiemTrungBinh = DiemTong/2;
+    document.write("Tổng điểm: " + DiemTong);
+    document.write("<br>")
+    document.write("Điểm trung bình: " + DiemTrungBinh);
+
+</script>
+</body>
+</html>
