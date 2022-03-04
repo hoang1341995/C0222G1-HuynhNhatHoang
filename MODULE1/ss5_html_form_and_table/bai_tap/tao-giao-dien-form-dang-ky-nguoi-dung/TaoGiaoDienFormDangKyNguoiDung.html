@@ -4,30 +4,54 @@
     <meta charset="UTF-8">
     <title>Tạo giao diện form đăng ký người dùng</title>
 </head>
+<style>
+    div{
+        border-radius: 5px;
+        background-color: #dddddd;
+        padding: 20px;
+    }
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        padding: 14px 40px;
+    }
+</style>
 <body>
+<div>
 <form action="http://demo.codegym.vn/6/registration_form/register.php" method="post">
-    <div>
-        <p>Họ và tên:</p>
-        <input name="name" id="name">
-    </div>
-    <div>
-        <p>Email:</p>
-        <input name="email" id="email">
-    </div>
-    <div>
-        <p>Số điện thoại:</p>
-        <input name="phone" id="phone" maxlength="10">
-    </div>
-    <div>
-        <p>Giới tính:</p>
+        <label>Họ và tên:</label>
+        <input type="text" name="name" id="name">
+
+        <label>Email:</label>
+        <input type="text" name="email" id="email">
+
+        <label>Số điện thoại:</label>
+        <input type="text" name="phone" id="phone" maxlength="10">
+
+        <label>Giới tính:</label>
         <input type="radio" name="gender" id="gender"> Nam
         <input type="radio" name="gender" id="gender"> Nữ
-    </div>
-    <div>
-        <button name="submit" id="submit"> Đăng ký</button>
-    </div>
+        <br>
+        <button name="button" id="submit"> Đăng ký</button>
 
 
 </form>
+</div>
 </body>
 </html>
