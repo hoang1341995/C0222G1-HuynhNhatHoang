@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ứng dụng máy tính nâng cao</title>
+</head>
+<style>
+    .button {
+        background-color: gray; /* Green */
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 30px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        width: 100px;
+        border-radius: 7px;
+
+    }
+    input{
+        width: 100%;
+        height: 100px;
+        margin: auto;
+        box-sizing: border-box;
+        border-radius: 7px;
+        font-size: 35px;
+        text-align: left;
+        color: gray;
+    }
+</style>
+<body>
+<div>
+    <h1>Calculator</h1>
+    <table>
+        <tr>
+            <td colspan="4"><input type="text" id="InOut" value="" placeholder="0" readonly></td>
+        </tr>
+        <tr>
+            <td><button class="button"  onclick="ShowNumber('%')">%</button></td>
+            <td><button class="button" onclick="Reset()">CE</button></td>
+            <td><button class="button"  onclick="Reset()">C</button></td>
+            <td><button class="button" onclick="ShowNumber('/')">÷</button></td>
+        </tr>
+        <tr>
+            <td><button class="button" onclick="ShowNumber('7')">7</button></td>
+            <td><button class="button" onclick="ShowNumber('8')">8</button></td>
+            <td><button class="button" onclick="ShowNumber('9')">9</button></td>
+            <td><button class="button" onclick="ShowNumber('*')">X</button></td>
+        </tr>
+        <tr>
+            <td><button class="button" onclick="ShowNumber('4')">4</button></td>
+            <td><button class="button" onclick="ShowNumber('5')">5</button></td>
+            <td><button class="button" onclick="ShowNumber('6')">6</button></td>
+            <td><button class="button" onclick="ShowNumber('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button class="button" onclick="ShowNumber('1')">1</button></td>
+            <td><button class="button" onclick="ShowNumber('2')">2</button></td>
+            <td><button class="button" onclick="ShowNumber('3')">3</button></td>
+            <td><button class="button" onclick="ShowNumber('+')">+</button></td>
+        </tr>
+        <tr>
+            <td><button class="button">+/-</button></td>
+            <td><button class="button">0</button></td>
+            <td><button class="button">.</button></td>
+            <td><button class="button" onclick="Total()">=</button></td>
+        </tr>
+    </table>
+</div>
+<script>
+    function ShowNumber(value) {
+    document.getElementById('InOut').value += value ;
+    }
+    function Total() {
+    let number1 = document.getElementById('InOut').value;
+    let number2 = eval(number1);
+    document.getElementById('InOut').value = number2;
+    }
+    function Reset() {
+        document.getElementById('InOut').value = "";
+
+    }
+</script>
+</body>
+</html>

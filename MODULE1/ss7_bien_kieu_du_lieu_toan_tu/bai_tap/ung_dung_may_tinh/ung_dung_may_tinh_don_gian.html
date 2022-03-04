@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ứng dụng máy tính đơn giản</title>
+</head>
+<body>
+<h1>Caculator</h1>
+<input type="text" id="number1" name="number1" placeholder="Number 1">
+<input type="text" id="number2" name="number2" placeholder="Number 2"><br><br>
+<button type="button"  onclick="Addition()">Addition(+)</button>
+<button type="button"  onclick="Subtraction()">Subtraction(-)</button>
+<button type="button"  onclick="Multiplication()">Multiplication(X)</button>
+<button type="button"  onclick="Division()">Division(/)</button>
+<div id="ShowMessage"></div>
+</body>
+<script>
+    function Addition() {
+        let number1 = parseInt(document.getElementById('number1').value);
+        let number2 = parseInt(document.getElementById('number2').value);
+        let total = number1+number2;
+        document.getElementById('ShowMessage').innerText = total;
+    }
+    function Subtraction() {
+        let number1 = parseInt(document.getElementById('number1').value);
+        let number2 = parseInt(document.getElementById('number2').value);
+        let total = number1-number2;
+        document.getElementById('ShowMessage').innerText = total;
+    }
+    function Multiplication() {
+        let number1 = parseInt(document.getElementById('number1').value);
+        let number2 = parseInt(document.getElementById('number2').value);
+        let total = number1*number2;
+        document.getElementById('ShowMessage').innerText = total;
+    }
+    function Division() {
+        let number1 = parseInt(document.getElementById('number1').value);
+        let number2 = parseInt(document.getElementById('number2').value);
+        let total = number1/number2;
+        document.getElementById('ShowMessage').innerText = total;
+    }
+</script>
+</html>
