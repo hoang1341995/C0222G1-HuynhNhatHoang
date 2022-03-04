@@ -35,29 +35,68 @@
 
         padding: 20px;
     }
+    button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        padding: 14px 40px;
+    }
+
 </style>
 <body>
 <div>
 
         <label>Amount</label>
-        <input type="text" name="amount" >
+        <input type="text" id="amount" name="amount" >
 
         <label>From Currency</label>
-        <select name="fromcurrency">
-            <option value="vietnam">VietNam</option>
-            <option value="usa">USA</option>
+        <select id="fromcurrency" name="fromcurrency">
+            <option value="vietnam">VietNam(VND)</option>
+            <option value="usa">USA(USD)</option>
         </select>
 
         <label>To Currency</label>
-        <select name="tocurrency">
-            <option value="vnd">VND</option>
-            <option value="usd">USD</option>
+        <select id="tocurrency" name="tocurrency">
+            <option value="usd">USA(USD)</option>
+            <option value="vnd">VietNam(VND)</option>
         </select>
 
     <button type="button" onclick="runapp();">Convert</button>
+    <div id="ShowMessage"></div>
 </div>
 <script>
+    function runapp(){
+        let amount = document.getElementById("amount").value;
+        let fromcurrency = document.getElementById("fromcurrency").value;
+        let tocurrency = document.getElementById("tocurrency").value;
+        if (amount == "") {
+            document.getElementById('ShowMessage').innerHTML = 'Chưa nhập giá trị amount';
+        }else {
+            if (fromcurrency == "vietnam" && tocurrency == "usd")
+                {
+                    document.getElementById("ShowMessage").innerText = amount+ " VND = " +  amount/23000 + "USD";
+                }
+            else if (fromcurrency == "usa" && tocurrency == "vnd")
+                {
+                    document.getElementById("ShowMessage").innerText = amount+ " USD = " + amount*23000 + "VND";
+                }
+            else if (fromcurrency == "vietnam" && tocurrency == "vnd")
+                {
+                    document.getElementById("ShowMessage").innerText = amount+ " VND = "+ amount + "VND";
+                }
+            else
+                {
+                    document.getElementById("ShowMessage").innerText = amount+ " USD = " + amount + "USD";
+                }
+        }
 
+    }
 </script>
 </body>
 </html>
