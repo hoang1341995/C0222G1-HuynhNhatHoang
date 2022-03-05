@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tính chỉ số cân nặng của cơ thể</title>
+</head>
+<style>
+    div{
+        border-radius: 5px;
+        background-color: #dddddd;
+        padding: 10px;
+    }
+    input{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #4CAF50;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    button{
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    label{
+        font-size: 20px;
+    }
+
+</style>
+<body>
+<span id="ShowMessage"></span>
+<div>
+<label>Nhập chiều cao</label>
+<input id="chieucao" name="chieucao" >
+<label>Nhập cân nặng</label>
+<input id="cannang" name="cannang" >
+<button type="button" id="button" onclick="CheckBMI()">Check BMI</button>
+</div>
+<script>
+    function CheckBMI() {
+        if (document.getElementById('chieucao').value == ""||document.getElementById('cannang').value == "") {
+            document.getElementById('ShowMessage').innerText = "Chưa nhập đủ thông tin";
+        } else {
+            var chieucao = parseInt(document.getElementById('chieucao').value);
+            var cannang = parseInt(document.getElementById('cannang').value);
+            var BMI = cannang / (chieucao ^ 2);
+            if (BMI < 18)
+                document.getElementById('ShowMessage').innerText = "BMI = " + BMI + " |Underweight";
+            else if (BMI < 25.0)
+                document.getElementById('ShowMessage').innerText = "BMI = " + BMI + " |Normal";
+            else if (BMI < 30.0)
+                document.getElementById('ShowMessage').innerText = "BMI = " + BMI + " |Overweight";
+            else
+                document.getElementById('ShowMessage').innerText = "BMI = " + BMI + " |Obese";
+        }
+    }
+
+</script>
+</body>
+</html>
