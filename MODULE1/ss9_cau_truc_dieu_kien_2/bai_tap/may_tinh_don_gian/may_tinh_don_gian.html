@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>máy tính đơn giản</title>
+</head>
+<style>
+    table{
+        border: 5px solid black;
+        background-color: #dddddd;
+        padding: 10px;
+    }
+    button{
+        width: 100%;
+        color: blue;
+    }
+    input{
+        color: blue;
+    }
+</style>
+<body>
+ <table>
+     <tr>
+         <td colspan="4">
+             <input type="text" id="InOut" name="InOut" placeholder="0" style="text-align: right">
+         </td>
+     </tr>
+     <tr>
+         <td><button type="button" onclick="ShowNumber('1')">1</button></td>
+         <td><button type="button" onclick="ShowNumber('2')">2</button></td>
+         <td><button type="button" onclick="ShowNumber('3')">3</button></td>
+         <td><button type="button" onclick="ShowNumber('+')">+</button></td>
+     </tr>
+     <tr>
+         <td><button type="button" onclick="ShowNumber('4')">4</button></td>
+         <td><button type="button" onclick="ShowNumber('5')">5</button></td>
+         <td><button type="button" onclick="ShowNumber('6')">6</button></td>
+         <td><button type="button" onclick="ShowNumber('-')">-</button></td>
+     </tr>
+     <tr>
+         <td><button type="button" onclick="ShowNumber('7')">7</button></td>
+         <td><button type="button" onclick="ShowNumber('8')">8</button></td>
+         <td><button type="button" onclick="ShowNumber('9')">9</button></td>
+         <td><button type="button" onclick="ShowNumber('*')">X</button></td>
+     </tr>
+     <tr>
+         <td><button type="button" onclick="Reset()">C</button></td>
+         <td><button type="button" onclick="ShowNumber('0')">0</button></td>
+         <td><button type="button" onclick="Total()">=</button></td>
+         <td><button type="button" onclick="ShowNumber('/')">/</button></td>
+     </tr>
+ </table>
+<script>
+    function ShowNumber(value) {
+        document.getElementById('InOut').value += value;
+    }
+    function Reset() {
+        document.getElementById('InOut').value = "";
+    }
+    function Total() {
+        var number = eval(document.getElementById('InOut').value);
+        document.getElementById('InOut').value = number;
+    }
+</script>
+</body>
+</html>
