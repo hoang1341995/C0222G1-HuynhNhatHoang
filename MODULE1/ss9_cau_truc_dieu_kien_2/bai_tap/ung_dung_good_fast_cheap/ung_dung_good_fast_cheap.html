@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng Good - Fast - Cheap</title>
+</head>
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+    div {
+        border-radius: 5px;
+        background-color: #e0e0e0;
+        width: 10%;
+    }
+</style>
+<body>
+<div>
+    <table>
+        <tr>
+            <td><label class="switch">
+                <input type="checkbox" id="good" onclick="Myfunction('good')">
+                <span class="slider round"></span>
+            </label>
+            </td>
+            <td><label style="font-weight: bold">GOOD</label></td>
+        </tr><tr>
+            <td><label class="switch">
+                <input type="checkbox" id="fast" onclick="Myfunction('fast')">
+                <span class="slider round"></span>
+            </label>
+             </td>
+        <td><label style="font-weight: bold">FAST</label></td>
+        </tr>
+        <tr>
+            <td><label class="switch">
+                <input type="checkbox" id="cheap" onclick="Myfunction('cheap')">
+                <span class="slider round"></span>
+            </label>
+            </td>
+        <td><label style="font-weight: bold">CHEAP</label></td>
+        </tr>
+    </table>
+</div>
+<script>
+   function Myfunction(value) {
+        var good = document.getElementById('good');
+        var fast = document.getElementById('fast');
+        var cheap = document.getElementById('cheap');
+
+        switch (value) {
+            case "good":
+                if(cheap.checked == true){
+                    fast.checked = false;
+                }
+                break;
+            case "fast":
+                if(good.checked == true){
+                    cheap.checked = false;
+                }
+                break;
+            case "cheap":
+                if(fast.checked == true){
+                    good.checked = false;
+                }
+                break;
+
+        }
+
+
+   }
+</script>
+</body>
+</html>

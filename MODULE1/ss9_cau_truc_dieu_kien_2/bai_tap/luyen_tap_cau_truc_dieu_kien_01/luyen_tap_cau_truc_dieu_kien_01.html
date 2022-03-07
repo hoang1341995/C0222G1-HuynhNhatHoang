@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập cấu trúc điều kiện 01</title>
+</head>
+<style>
+    div{
+        border-radius: 5px;
+        padding: 4px;
+        background-color: #e0e0e0;
+    }
+    input, select {
+        width: 350px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    button {
+        width: 350px;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+<body>
+<div>
+    <h2>Bài 1: Nhập vào hai số a và b, và kiểm tra xem a có chia hết cho b hay không</h2>
+    <p id="bai1-showmassge"></p>
+    <input type="text" id="bai1number1" placeholder="Nhập vào số A"><br>
+    <input type="text" id="bai1number2" placeholder="Nhập vào số B"><br>
+    <button type="button" id="bai1checknumber" onclick="Bai1CheckNumber()">Kiểm tra</button>
+</div>
+<br>
+<div>
+    <h2>Bài 2: Nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp 10.</h2>
+    <p id="bai2-showmassge"></p>
+    <input type="text" id="bai2number1" placeholder="Nhập tuổi"><br>
+    <button type="button" id="bai2checkage" onclick="bai2checkage()">Kiểm tra tuổi</button>
+</div>
+<br>
+<div>
+    <h2>Bài 3: Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ hơn 0</h2>
+    <p id="bai3-showmassge"></p>
+    <input type="text" id="bai3number1" placeholder="Nhập số cần kiểm tra"><br>
+    <button type="button" id="bai3checknumber" onclick="bai3checknumber()">Kiểm tra số</button>
+</div>
+<br>
+<div>
+    <h2>Bài 4: Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó</h2>
+    <p id="bai4-showmassge"></p>
+    <input type="text" id="bai4number1" placeholder="Nhập số A"><br>
+    <input type="text" id="bai4number2" placeholder="Nhập số B"><br>
+    <input type="text" id="bai4number3" placeholder="Nhập số C"><br>
+    <button type="button" id="bai4checknumber" onclick="bai4checknumber()">Kiểm tra số</button>
+</div>
+<br>
+<div>
+    <h2>Bài 5: Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ</h2>
+    <p id="bai5-showmassge"></p>
+    <input type="text" id="bai5number1" placeholder="Nhập điểm thi giữa kỳ"><br>
+    <input type="text" id="bai5number2" placeholder="Nhập điểm thi cuối kỳ"><br>
+    <button type="button" id="bai5checknumber" onclick="bai5checknumber()">Kiểm tra điểm</button>
+</div>
+<br>
+<div>
+    <h2>Bài 6: Tính hoa hồng nhận được tuỳ theo mức doanh số bán hàng</h2>
+    <p id="bai6-showmassge"></p>
+    <input type="text" id="bai6number1" placeholder="Nhập doanh số"><br>
+    <button type="button" id="bai6checknumber" onclick="bai6checknumber()">Kiểm tra</button>
+    <p>doanh thu: < 30,000,000vnd - hoa hồng 5%<br>
+       doanh thu: => 30,000,000vnd < 50,000,000vnd - hoa hồng 10%<br>
+       doanh thu: =>50,000,000vnd - hoa hồng 15%<br></p>
+</div>
+<br>
+<div>
+    <h2>Bài 7: Tính cước điện thoại cho một hộ gia đình với các thông số đã cho</h2>
+    <p id="bai7-showmassge"></p>
+    <input type="text" id="bai7number1" placeholder="Nhập số phút"><br>
+    <select id="bai7nhamang">
+        <option value="viettel">viettel</option>
+        <option value="vinaphone">vinaphone</option>
+        <option value="mobifone">mobifone</option>
+    </select><br>
+    <button type="button" id="bai7checknumber" onclick="bai7checknumber()">Kiểm tra</button>
+    <p>Cước Viettel: 1390đ/phút<br>
+        Cước Vinaphone: 1190đ/phút<br>
+        Cước Mobifone: 1290đ/phút<br></p>
+</div>
+<script>
+    function Bai1CheckNumber() {
+        var bai1number1 = parseInt(document.getElementById('bai1number1').value);
+        var bai1number2 = parseInt(document.getElementById('bai1number2').value);
+        var bai1total = bai1number1%bai1number2;
+        if (bai1total == 0){
+            document.getElementById('bai1-showmassge').innerText = "Số A CÓ chia hết cho Số B";
+        }else{
+            document.getElementById('bai1-showmassge').innerText = "Số A KHÔNG chia hết cho số B";
+        }
+    }
+    function bai2checkage() {
+        var bai2number1 = parseInt(document.getElementById('bai2number1').value);
+        if (bai2number1 < 16){
+            document.getElementById('bai2-showmassge').innerText = "CHƯA đủ tuổi học lớp 10";
+        }else if(bai2number1 == 16){
+            document.getElementById('bai2-showmassge').innerText = "Đã ĐỦ tuổi học lớp 10";
+        }else if(bai2number1 > 16){
+            document.getElementById('bai2-showmassge').innerText = "Đã QUÁ tuổi học lớp 10";
+        }else{
+            document.getElementById('bai2-showmassge').innerText = "Nhập vào tuổi";
+        }
+
+    }
+    function bai3checknumber() {
+        var bai3number1 = parseInt(document.getElementById('bai3number1').value);
+        if (bai3number1 > 0){
+            document.getElementById('bai3-showmassge').innerText = "Số bạn nhập lớn hơn 0";
+        }else if(bai3number1 < 0){
+            document.getElementById('bai3-showmassge').innerText = "Số bạn nhập nhỏ hơn 0";
+        }else if(bai3number1 == 0){
+            document.getElementById('bai3-showmassge').innerText = "Số bạn nhập là 0";
+        }else{
+            document.getElementById('bai3-showmassge').innerText = "Nhập vào 1 số nguyên"
+        }
+    }
+    function bai4checknumber() {
+        var bai4number1 = parseInt(document.getElementById('bai4number1').value);
+        var bai4number2 = parseInt(document.getElementById('bai4number2').value);
+        var bai4number3 = parseInt(document.getElementById('bai4number3').value);
+        var Array = [bai4number1,bai4number2,bai4number3];
+        var i= 0;
+        var max = 0;
+        while (i<3){
+            if (Array[i] > max){
+                max = Array[i];
+            }
+             i++;
+        }
+        document.getElementById('bai4-showmassge').innerText = max +" là số lớn nhất";
+    }
+    function bai5checknumber() {
+        var bai5number1 = parseInt(document.getElementById('bai5number1').value);
+        var bai5number2 = parseInt(document.getElementById('bai5number2').value);
+        var diemtrungbinh = (bai5number1+bai5number2)/2;
+        if (diemtrungbinh < 5){
+            document.getElementById('bai5-showmassge').innerText = diemtrungbinh+" điểm, Học sinh yếu";
+        }else if(diemtrungbinh >= 5 && diemtrungbinh <7){
+            document.getElementById('bai5-showmassge').innerText = diemtrungbinh+" điểm, Học sinh trung bình";
+        }else if(diemtrungbinh >= 7 && diemtrungbinh <9){
+            document.getElementById('bai5-showmassge').innerText = diemtrungbinh+" điểm, Học sinh khá";
+        }else if(diemtrungbinh >= 9 && diemtrungbinh <= 10){
+            document.getElementById('bai5-showmassge').innerText = diemtrungbinh+" điểm, Học sinh giỏi";
+        }else{
+            document.getElementById('bai5-showmassge').innerText = "Nhập điểm học sinh";
+        }
+    }
+    function bai6checknumber() {
+        var bai6number1 = parseInt(document.getElementById('bai6number1').value);
+        var hoahong = 0;
+        if (bai6number1 < 30000000){
+            hoahong = (bai6number1/100)*5;
+            document.getElementById('bai6-showmassge').innerText = "Doanh thu "+bai6number1.toLocaleString()+"vnd - hoa hồng 5% = "+hoahong.toLocaleString()+"vnd";
+        }else if (bai6number1 >= 30000000 && bai6number1 < 50000000){
+            hoahong = (bai6number1/100)*10;
+            document.getElementById('bai6-showmassge').innerText = "Doanh thu "+bai6number1.toLocaleString()+"vnd - hoa hồng 10% = "+hoahong.toLocaleString()+"vnd";
+        }else if (bai6number1 >= 50000000){
+            hoahong = (bai6number1/100)*15;
+            document.getElementById('bai6-showmassge').innerText = "Doanh thu "+bai6number1.toLocaleString()+"vnd - hoa hồng 15% = "+hoahong.toLocaleString()+"vnd";
+        }else{
+            document.getElementById('bai6-showmassge').innerText = "Nhập doanh số";
+        }
+
+
+    }
+    function bai7checknumber() {
+        var bai7number1 = parseInt(document.getElementById('bai7number1').value);
+        var bai7nhamang = document.getElementById('bai7nhamang').value;
+
+            if (bai7nhamang == "viettel") {
+                var Total = bai7number1 * 1390;
+                document.getElementById('bai7-showmassge').innerText = bai7number1.toLocaleString() + " phút " + bai7nhamang + " = " + Total.toLocaleString() + " vnđ";
+            } else if (bai7nhamang == "vinaphone") {
+                var Total = bai7number1 * 1190;
+                document.getElementById('bai7-showmassge').innerText = bai7number1.toLocaleString() + " phút " + bai7nhamang + " = " + Total.toLocaleString() + " vnđ";
+            } else if (bai7nhamang == "mobifone") {
+                var Total = bai7number1 * 1290;
+                document.getElementById('bai7-showmassge').innerText = bai7number1.toLocaleString() + " phút " + bai7nhamang + " = " + Total.toLocaleString() + " vnđ";
+            }
+
+    }
+</script>
+</body>
+</html>
