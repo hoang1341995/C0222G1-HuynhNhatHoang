@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sử dụng vòng lặp lồng nhau</title>
+</head>
+<style>
+    table{
+        border-radius: 5px;
+        padding: 4px;
+        width: 300px;
+    }
+    td{
+        border-radius: 5px;
+        border: 1px solid black;
+        text-align: center;
+    }
+</style>
+<body>
+<script>
+    let a = 1,b = 1;
+    let table = "<table>";
+    while (a<=10){
+        table = table + "<tr>";
+        while(b<= 10){
+            table = table + "<td>" + a*b+"</td>";
+            b++;
+        }
+        b=1;
+        a++;
+    }
+    table = table+"</table>";
+    document.write(table)
+</script>
+</body>
+</html>
