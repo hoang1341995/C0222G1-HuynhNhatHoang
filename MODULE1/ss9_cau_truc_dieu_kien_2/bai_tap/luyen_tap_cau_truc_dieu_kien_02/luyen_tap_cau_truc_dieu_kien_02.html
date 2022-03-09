@@ -35,7 +35,7 @@
         text-align: center;
     }
 </style>
-<body>
+<body  ng-controller="PlaylistsCtrl">
 <table>
     <tr>
        <td>
@@ -162,6 +162,7 @@
     </tr>
 </table>
 <script>
+
     function bai1button1() {
         let DoC = parseInt(document.getElementById('bai1input1').value);
         let DoF = (DoC*9)/5+32;
@@ -301,16 +302,15 @@
         var total2 = "";
         if(bai12input1 > 0) {
             for (let i = 1;i < bai12input2+1;i++){
-                total = total*1.0059;
-                total2 += "Tháng "+i+" tiền gốc và lãi là "+ total.toLocaleString()+"vnd<br>";
+                total = total*1.0058333333333333;
+                total2 += "Tháng "+i+" tiền gốc và lãi là "+ Math.trunc(total).toLocaleString()+" vnd<br>";
             }
+
             document.getElementById('bai12ShowMessage').innerHTML = total2;
         }else{
             document.getElementById('bai12ShowMessage').innerText = "Các tiền phải lớn hơn 0";
         }
     }
-
-
 
 </script>
 </body>
