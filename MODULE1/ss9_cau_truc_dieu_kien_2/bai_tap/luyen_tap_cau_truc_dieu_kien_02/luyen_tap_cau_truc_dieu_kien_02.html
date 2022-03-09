@@ -149,11 +149,11 @@
                 <p id="bai12ShowMessage"></p>
                 <input type="text" id="bai12input1" placeholder="Nhập số tiền cần gửi">
                 <select id="bai12input2">
-                    <option value="1">1 Năm</option>
-                    <option value="2">2 Năm</option>
-                    <option value="3">3 Năm</option>
-                    <option value="4">4 Năm</option>
-                    <option value="5">5 Năm</option>
+                    <option value="12">12 tháng</option>
+                    <option value="24">24 tháng</option>
+                    <option value="36">36 tháng</option>
+                    <option value="48">48 tháng</option>
+                    <option value="60">60 tháng</option>
                 </select>
                 <button type="button" onclick="bai12button1()">Xác nhận</button>
                 <p>Lãi suất: 7%/năm</p>
@@ -301,8 +301,8 @@
         var total2 = "";
         if(bai12input1 > 0) {
             for (let i = 1;i < bai12input2+1;i++){
-                total = total*1.07;
-                total2 += "Năm "+i+" tiền gốc và lãi là "+ total.toLocaleString()+"vnd<br>";
+                total = total*1.0059;
+                total2 += "Tháng "+i+" tiền gốc và lãi là "+ total.toLocaleString()+"vnd<br>";
             }
             document.getElementById('bai12ShowMessage').innerHTML = total2;
         }else{
