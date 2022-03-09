@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập cấu trúc điều kiện 02</title>
+</head>
+<style>
+    div{
+        width: 450px;
+        height: 350px;
+        border-radius: 10px;
+        padding: 4px;
+        background-color: lavender;
+    }
+    input, select {
+        width: 350px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    button {
+        width: 350px;
+        background-color: royalblue;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    td{
+        text-align: center;
+    }
+</style>
+<body>
+<table>
+    <tr>
+       <td>
+           <div>
+               <h2>Bài 1: Chuyển từ độ C sang độ F.</h2><br>
+               <p id="bai1ShowMessage"></p>
+               <input type="text" id="bai1input1" placeholder="Nhập độ C"><br>
+               <button type="button" onclick="bai1button1()">Xác nhận</button>
+           </div>
+       </td>
+        <td>
+            <div>
+                <h2>Bài 2: Chuyển từ mét sang feet:</h2><br>
+                <p id="bai2ShowMessage"></p>
+                <input type="text" id="bai2input1" placeholder="Nhập mét"><br>
+                <button type="button" onclick="bai2button1()">Xác nhận</button>
+            </div>
+        </td>
+        <td>
+            <div>
+                <h2>Bài 3: Tính diện tích hình vuông khi biết cạnh a.</h2>
+                <p id="bai3ShowMessage"></p>
+                <input type="text" id="bai3input1" placeholder="Nhập cạnh A (m)"><br>
+                <button type="button" onclick="bai3button1()">Xác nhận</button>
+            </div>
+        </td>
+        <td>
+            <div>
+                <h2>Bài 4: Tính diện tích hình  chữ nhật khi biết 02 cạnh a, b.</h2>
+                <p id="bai4ShowMessage"></p>
+                <input type="text" id="bai4input1" placeholder="Nhập cạnh A (m)"><br>
+                <input type="text" id="bai4input2" placeholder="Nhập cạnh B (m)"><br>
+                <button type="button" onclick="bai4button1()">Xác nhận</button>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <h2>Bài 5: Tính diện tích tam giác vuông khi biết 02 cạnh kề a, b.</h2>
+                <p id="bai5ShowMessage"></p>
+                <input type="text" id="bai5input1" placeholder="Nhập cạnh A (m)"><br>
+                <input type="text" id="bai5input2" placeholder="Nhập cạnh B (m)"><br>
+                <button type="button" onclick="bai5button1()">Xác nhận</button>
+            </div>
+        </td>
+        <td>
+            <div>
+                <h2>Bài 6: Giải phương trình bậc 1.</h2><br>
+                <p id="bai6ShowMessage"></p>
+                <input type="text" id="bai6input1" placeholder="Nhập hệ số A"><br>
+                <input type="text" id="bai6input2" placeholder="Nhập hệ số B"><br>
+                <button type="button" onclick="bai6button1()">Xác nhận</button>
+            </div>
+        </td>
+        <td>
+            <div>
+                <h2>Bài 7: Giải phương trình bậc 2.</h2><br>
+                <p id="bai7ShowMessage"></p>
+                <input type="text" id="bai7input1" placeholder="Nhập hệ số A"><br>
+                <input type="text" id="bai7input2" placeholder="Nhập hệ số B"><br>
+                <input type="text" id="bai7input3" placeholder="Nhập hệ số C"><br>
+                <button type="button" onclick="bai7button1()">Xác nhận</button>
+            </div>
+        </td>
+        <td>
+            <div>
+                <h2>Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không. Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0.</h2>
+                <p id="bai8ShowMessage"></p>
+                <input type="text" id="bai8input1" placeholder="Nhập tuổi"><br>
+                <button type="button" onclick="bai8button1()">Xác nhận</button>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <h2>Bài 9: Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác. </h2>
+                <p id="bai9ShowMessage"></p>
+                <input type="text" id="bai9input1" placeholder="Nhập số A"><br>
+                <input type="text" id="bai9input2" placeholder="Nhập số B"><br>
+                <input type="text" id="bai9input3" placeholder="Nhập số C"><br>
+                <button type="button" onclick="bai9button1()">Xác nhận</button>
+            </div>
+        </td>
+        <td>
+            <div>
+                <h2>Bài 10: Viết chương trình tính giá điện.</h2><br>
+                <p id="bai10ShowMessage"></p>
+                <input type="text" id="bai10input1" placeholder="Nhập sản lượng (kWh)"><br>
+                <button type="button" onclick="bai10button1()">Xác nhận</button>
+                <p>Đơn giá: 1678vnd/kWh</p>
+            </div>
+        </td>
+        <td>
+            <div>
+                <h2>Bài 11: Viết chương trình tính thuế thu nhập cá nhân.</h2>
+                <p id="bai11ShowMessage"></p>
+                <input type="text" id="bai11input1" placeholder="Nhập mức lương của bạn"><br>
+                <button type="button" onclick="bai11button1()">Xác nhận</button>
+                <p>               <= 5,000,000vnd - 5%
+                <br>>5,000,000vnd <= 10,000,000vnd - 10%
+                <br>>10,000,000vnd <= 18,000,000vnd - 15%
+                 <br>>18,000,000vnd <= 32,000,000vnd - 20%
+                    <br>>32,000,000vnd - 25%</p>
+            </div>
+        </td>
+        <td>
+            <div>
+                <h2>Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con)</h2>
+                <p id="bai12ShowMessage"></p>
+                <input type="text" id="bai12input1" placeholder="Nhập số tiền cần gửi">
+                <select id="bai12input2">
+                    <option value="1">1 Năm</option>
+                    <option value="2">2 Năm</option>
+                    <option value="3">3 Năm</option>
+                    <option value="4">4 Năm</option>
+                    <option value="5">5 Năm</option>
+                </select>
+                <button type="button" onclick="bai12button1()">Xác nhận</button>
+                <p>Lãi suất: 7%/năm</p>
+            </div>
+        </td>
+    </tr>
+</table>
+<script>
+    function bai1button1() {
+        let DoC = parseInt(document.getElementById('bai1input1').value);
+        let DoF = (DoC*9)/5+32;
+        document.getElementById('bai1ShowMessage').innerText = DoC+"C = "+DoF+"F"
+    }
+    function bai2button1() {
+        let met = parseInt(document.getElementById('bai2input1').value);
+        let feet = met*3.2808;
+        document.getElementById('bai2ShowMessage').innerText = met+" met = "+feet+" feet"
+    }
+    function bai3button1() {
+        let canha = parseInt(document.getElementById('bai3input1').value);
+        let total = canha*canha;
+        document.getElementById('bai3ShowMessage').innerText = "Diện tích hình vuông là "+total.toLocaleString()+"m2"
+    }
+    function bai4button1() {
+        let canha = parseInt(document.getElementById('bai4input1').value);
+        let canhb = parseInt(document.getElementById('bai4input2').value);
+        let total = canha*canhb;
+        document.getElementById('bai4ShowMessage').innerText = "Diện tích hình chữ nhật là "+total+"m2"
+    }
+    function bai5button1() {
+        let bai5input1 = parseInt(document.getElementById('bai5input1').value);
+        let bai5input2 = parseInt(document.getElementById('bai5input2').value);
+        if(bai5input1 > 0 || bai5input2 > 0){
+            let total = bai5input1*bai5input2/2;
+            document.getElementById('bai5ShowMessage').innerText = "Diện tích tam giác là "+total;
+        }else{
+            document.getElementById('bai5ShowMessage').innerText = "Dữ liệu nhập vào phải là số dương";
+        }
+
+
+
+    }
+    function bai6button1() {
+        let bai6input1 = parseInt(document.getElementById('bai6input1').value);
+        let bai6input2 = parseInt(document.getElementById('bai6input2').value);
+        if(bai6input1 == 0){
+            if (bai6input2 == 0){
+                document.getElementById('bai6ShowMessage').innerText = "Phương trình vô số nghiệm"
+            }else{
+                document.getElementById('bai6ShowMessage').innerText = "Phương trình số nghiệm"
+            }
+        }else{
+            document.getElementById('bai6ShowMessage').innerText = "Phương trình có nghiệm x = "+ -bai6input2/bai6input1;
+        }
+
+
+
+    }
+    function bai7button1() {
+        let bai7input1 = parseInt(document.getElementById('bai7input1').value);
+        let bai7input2 = parseInt(document.getElementById('bai7input2').value);
+        let bai7input3 = parseInt(document.getElementById('bai7input3').value);
+        if (bai7input1 == 0){
+            if (bai7input2 == 0){
+                if (bai7input3 == 0){
+                    document.getElementById('bai7ShowMessage').innerText = "Phương trình vô số nghiệm";
+                }else{
+                    document.getElementById('bai7ShowMessage').innerText = "Phương trình vô nghiệm";
+                }
+            }else{
+                document.getElementById('bai7ShowMessage').innerText = "Phương trình có 1 nghiệm x = "+ -bai7input3/bai7input2;
+            }
+        }else{
+            var heSoD = bai7input2*bai7input2-4*bai7input1*bai7input3;
+            if (heSoD < 0){
+                document.getElementById('bai7ShowMessage').innerText = "Phương trình vô nghiệm";
+            }else if (heSoD == 0){
+                document.getElementById('bai7ShowMessage').innerText = "Phương trình có nghiệm kép. x1 = x2 = "+ -bai7input2/(2*bai7input1);
+            }else{
+                let x1 = ((-bai7input2 + Math.sqrt(heSoD)) / (2 * bai7input1));
+                let x2 = ((-bai7input2 - Math.sqrt(heSoD)) / (2 * bai7input1));
+                document.getElementById('bai7ShowMessage').innerText = "Phương trình có 2 nghiệm phân biệt";
+            }
+
+        }
+
+
+
+    }
+    function bai8button1() {
+        let bai8input1 = parseInt(document.getElementById('bai8input1').value);
+                if (bai8input1>0 && bai8input1 < 120){
+                    document.getElementById('bai8ShowMessage').innerText = bai8input1 + " là tuổi người";
+                }else{
+                    document.getElementById('bai8ShowMessage').innerText = bai8input1 + " không phải là tuổi người";
+                }
+    }
+    function bai9button1() {
+        let bai9input1 = parseInt(document.getElementById('bai9input1').value);
+        let bai9input2 = parseInt(document.getElementById('bai9input2').value);
+        let bai9input3 = parseInt(document.getElementById('bai9input3').value);
+        if (bai9input1 > 0 && bai9input2 > 0 && bai9input3 > 0){
+            if(bai9input1+bai9input2>bai9input3 && bai9input2+bai9input3>bai9input1 && bai9input1+bai9input3>bai9input2){
+                document.getElementById('bai9ShowMessage').innerText = "A,B,C là cạnh của 1 tam giác";
+            }else{
+                document.getElementById('bai9ShowMessage').innerText = "A,B,C không phải là cạnh của 1 tam giác";
+            }
+        }else{
+            document.getElementById('bai9ShowMessage').innerText = "Các số A,B,C phải lớn hơn 0";
+        }
+
+    }
+    function bai10button1() {
+        var bai10input1 = parseInt(document.getElementById('bai10input1').value);
+        if (bai10input1>0){
+            let total = bai10input1*1678;
+            document.getElementById('bai10ShowMessage').innerText = bai10input1.toLocaleString()+" kWh = "+total.toLocaleString()+"vnd";
+        }else{
+            document.getElementById('bai10ShowMessage').innerText = "Nhập vào sản lượng điện";
+        }
+    }
+    function bai11button1() {
+        var bai11input1 = parseInt(document.getElementById('bai11input1').value);
+        if (bai11input1<=5000000){
+            var total = (bai11input1/100)*5;
+            document.getElementById('bai11ShowMessage').innerText = bai11input1.toLocaleString()+" vnd | thuế 5% = "+total.toLocaleString()+" vnd";
+        }else if (bai11input1>5000000&&bai11input1<=10000000){
+            var total = (bai11input1/100)*10;
+            document.getElementById('bai11ShowMessage').innerText = bai11input1.toLocaleString()+" vnd | thuế 10% = "+total.toLocaleString()+" vnd";
+        }else if (bai11input1>10000000&&bai11input1<=18000000){
+            var total = (bai11input1/100)*15;
+            document.getElementById('bai11ShowMessage').innerText = bai11input1.toLocaleString()+" vnd | thuế 15% = "+total.toLocaleString()+" vnd";
+        }else if (bai11input1>18000000&&bai11input1<=32000000){
+            var total = (bai11input1/100)*20;
+            document.getElementById('bai11ShowMessage').innerText = bai11input1.toLocaleString()+" vnd | thuế 20% = "+total.toLocaleString()+" vnd";
+        }else{
+            var total = (bai11input1/100)*25;
+            document.getElementById('bai11ShowMessage').innerText = bai11input1.toLocaleString()+" vnd | thuế 25% = "+total.toLocaleString()+" vnd";
+        }
+    }
+    function bai12button1() {
+        let bai12input1 = parseInt(document.getElementById('bai12input1').value);
+        let bai12input2 = parseInt(document.getElementById('bai12input2').value);
+        var total = bai12input1;
+        var total2 = "";
+        if(bai12input1 > 0) {
+            for (let i = 1;i < bai12input2+1;i++){
+                total = total*1.07;
+                total2 += "Năm "+i+" tiền gốc và lãi là "+ total.toLocaleString()+"vnd<br>";
+            }
+            document.getElementById('bai12ShowMessage').innerHTML = total2;
+        }else{
+            document.getElementById('bai12ShowMessage').innerText = "Các tiền phải lớn hơn 0";
+        }
+    }
+
+
+
+</script>
+</body>
+
+</html>
