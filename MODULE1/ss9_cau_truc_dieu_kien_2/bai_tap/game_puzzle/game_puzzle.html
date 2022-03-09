@@ -5,6 +5,34 @@
     <title>Game puzzle</title>
 </head>
 <body>
+<div class="container-fluid">
+    <div class="puzzles">
+        <img id="images1" src="images/1x1.jpg" onclick="clickImage('1')" alt="" style="width: 600px;height: 150px" /><br>
+        <img id="images2" src="images/3x2.jpg" onclick="clickImage('2')" alt="" style="width: 600px;height: 150px" /><br>
+        <img id="images3" src="images/1x3.jpg" onclick="clickImage('3')" alt="" style="width: 600px;height: 150px" /><br>
+        <img id="images4" src="images/2x4.jpg" onclick="clickImage('4')" alt="" style="width: 600px;height: 150px" /><br>
+        <img id="images5" src="images/1x5.jpg" onclick="clickImage('5')" alt="" style="width: 600px;height: 150px" />
+    </div>
 
+</div>
+<script>
+    function clickImage(value) {
+        let random1 = Math.floor((Math.random() * 3) + 1);
+        //let random2 = Math.floor((Math.random() * 5) + 1);
+        document.getElementById('images'+value).src = "images/"+random1+"x"+value+".jpg"
+        //checkImages()
+    }
+    function checkImages() {
+        var imgs1 = [ "image11.jpg", "image21.jpg", "image31.jpg"];
+        document.getElementById('img1').src = imgs1[index1];
+        index1++;
+        if (index1 === 3 ){
+            index1 = 0;
+        }
+        if (index1 === index2 && index2 === index3 && index3 === index4 && index4 === index5) {
+            alert('WELLDONE!');
+        }
+    }
+</script>
 </body>
 </html>

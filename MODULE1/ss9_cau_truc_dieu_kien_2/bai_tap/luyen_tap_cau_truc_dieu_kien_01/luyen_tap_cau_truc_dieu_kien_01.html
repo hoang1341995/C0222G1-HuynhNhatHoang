@@ -6,9 +6,11 @@
 </head>
 <style>
     div{
-        border-radius: 5px;
+        width: 450px;
+        height: 350px;
+        border-radius: 10px;
         padding: 4px;
-        background-color: #e0e0e0;
+        background-color: lavender;
     }
     input, select {
         width: 350px;
@@ -21,7 +23,7 @@
     }
     button {
         width: 350px;
-        background-color: #4CAF50;
+        background-color: royalblue;
         color: white;
         padding: 14px 20px;
         margin: 8px 0;
@@ -29,71 +31,88 @@
         border-radius: 4px;
         cursor: pointer;
     }
+    td{
+        text-align: center;
+    }
 </style>
 <body>
-<div>
-    <h2>Bài 1: Nhập vào hai số a và b, và kiểm tra xem a có chia hết cho b hay không</h2>
-    <p id="bai1-showmassge"></p>
-    <input type="text" id="bai1number1" placeholder="Nhập vào số A"><br>
-    <input type="text" id="bai1number2" placeholder="Nhập vào số B"><br>
-    <button type="button" id="bai1checknumber" onclick="Bai1CheckNumber()">Kiểm tra</button>
-</div>
-<br>
-<div>
-    <h2>Bài 2: Nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp 10.</h2>
-    <p id="bai2-showmassge"></p>
-    <input type="text" id="bai2number1" placeholder="Nhập tuổi"><br>
-    <button type="button" id="bai2checkage" onclick="bai2checkage()">Kiểm tra tuổi</button>
-</div>
-<br>
-<div>
-    <h2>Bài 3: Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ hơn 0</h2>
-    <p id="bai3-showmassge"></p>
-    <input type="text" id="bai3number1" placeholder="Nhập số cần kiểm tra"><br>
-    <button type="button" id="bai3checknumber" onclick="bai3checknumber()">Kiểm tra số</button>
-</div>
-<br>
-<div>
-    <h2>Bài 4: Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó</h2>
-    <p id="bai4-showmassge"></p>
-    <input type="text" id="bai4number1" placeholder="Nhập số A"><br>
-    <input type="text" id="bai4number2" placeholder="Nhập số B"><br>
-    <input type="text" id="bai4number3" placeholder="Nhập số C"><br>
-    <button type="button" id="bai4checknumber" onclick="bai4checknumber()">Kiểm tra số</button>
-</div>
-<br>
-<div>
-    <h2>Bài 5: Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ</h2>
-    <p id="bai5-showmassge"></p>
-    <input type="text" id="bai5number1" placeholder="Nhập điểm thi giữa kỳ"><br>
-    <input type="text" id="bai5number2" placeholder="Nhập điểm thi cuối kỳ"><br>
-    <button type="button" id="bai5checknumber" onclick="bai5checknumber()">Kiểm tra điểm</button>
-</div>
-<br>
-<div>
-    <h2>Bài 6: Tính hoa hồng nhận được tuỳ theo mức doanh số bán hàng</h2>
-    <p id="bai6-showmassge"></p>
-    <input type="text" id="bai6number1" placeholder="Nhập doanh số"><br>
-    <button type="button" id="bai6checknumber" onclick="bai6checknumber()">Kiểm tra</button>
-    <p>doanh thu: < 30,000,000vnd - hoa hồng 5%<br>
-       doanh thu: => 30,000,000vnd < 50,000,000vnd - hoa hồng 10%<br>
-       doanh thu: =>50,000,000vnd - hoa hồng 15%<br></p>
-</div>
-<br>
-<div>
-    <h2>Bài 7: Tính cước điện thoại cho một hộ gia đình với các thông số đã cho</h2>
-    <p id="bai7-showmassge"></p>
-    <input type="text" id="bai7number1" placeholder="Nhập số phút"><br>
-    <select id="bai7nhamang">
-        <option value="viettel">viettel</option>
-        <option value="vinaphone">vinaphone</option>
-        <option value="mobifone">mobifone</option>
-    </select><br>
-    <button type="button" id="bai7checknumber" onclick="bai7checknumber()">Kiểm tra</button>
-    <p>Cước Viettel: 1390đ/phút<br>
-        Cước Vinaphone: 1190đ/phút<br>
-        Cước Mobifone: 1290đ/phút<br></p>
-</div>
+<table>
+    <tr>
+        <td>
+            <div>
+                <h2>Bài 1: Nhập vào hai số a và b, và kiểm tra xem a có chia hết cho b hay không</h2>
+                <p id="bai1-showmassge"></p>
+                <input type="text" id="bai1number1" placeholder="Nhập vào số A"><br>
+                <input type="text" id="bai1number2" placeholder="Nhập vào số B"><br>
+                <button type="button" id="bai1checknumber" onclick="Bai1CheckNumber()">Kiểm tra</button>
+            </div>
+        </td>
+        <td>
+            <div>
+                <h2>Bài 2: Nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp 10.</h2>
+                <p id="bai2-showmassge"></p>
+                <input type="text" id="bai2number1" placeholder="Nhập tuổi"><br>
+                <button type="button" id="bai2checkage" onclick="bai2checkage()">Kiểm tra tuổi</button>
+            </div>
+        </td>
+        <td>
+            <div>
+                <h2>Bài 3: Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ hơn 0</h2>
+                <p id="bai3-showmassge"></p>
+                <input type="text" id="bai3number1" placeholder="Nhập số cần kiểm tra"><br>
+                <button type="button" id="bai3checknumber" onclick="bai3checknumber()">Kiểm tra số</button>
+            </div>
+        </td>
+        <td>
+            <div>
+                <h2>Bài 4: Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó</h2>
+                <p id="bai4-showmassge"></p>
+                <input type="text" id="bai4number1" placeholder="Nhập số A"><br>
+                <input type="text" id="bai4number2" placeholder="Nhập số B"><br>
+                <input type="text" id="bai4number3" placeholder="Nhập số C"><br>
+                <button type="button" id="bai4checknumber" onclick="bai4checknumber()">Kiểm tra số</button>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div>
+                <h2>Bài 5: Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ</h2>
+                <p id="bai5-showmassge"></p>
+                <input type="text" id="bai5number1" placeholder="Nhập điểm thi giữa kỳ"><br>
+                <input type="text" id="bai5number2" placeholder="Nhập điểm thi cuối kỳ"><br>
+                <button type="button" id="bai5checknumber" onclick="bai5checknumber()">Kiểm tra điểm</button>
+            </div>
+        </td>
+        <td>
+            <div>
+                <h2>Bài 6: Tính hoa hồng nhận được tuỳ theo mức doanh số bán hàng</h2>
+                <p id="bai6-showmassge"></p>
+                <input type="text" id="bai6number1" placeholder="Nhập doanh số"><br>
+                <button type="button" id="bai6checknumber" onclick="bai6checknumber()">Kiểm tra</button>
+                <p>doanh thu: < 30,000,000vnd - hoa hồng 5%<br>
+                    doanh thu: => 30,000,000vnd < 50,000,000vnd - hoa hồng 10%<br>
+                    doanh thu: =>50,000,000vnd - hoa hồng 15%<br></p>
+            </div>
+        </td>
+        <td>
+            <div>
+                <h2>Bài 7: Tính cước điện thoại cho một hộ gia đình với các thông số đã cho</h2>
+                <p id="bai7-showmassge"></p>
+                <input type="text" id="bai7number1" placeholder="Nhập số phút"><br>
+                <select id="bai7nhamang">
+                    <option value="viettel">viettel</option>
+                    <option value="vinaphone">vinaphone</option>
+                    <option value="mobifone">mobifone</option>
+                </select><br>
+                <button type="button" id="bai7checknumber" onclick="bai7checknumber()">Kiểm tra</button>
+                <p>Cước Viettel: 1390đ/phút<br>
+                    Cước Vinaphone: 1190đ/phút<br>
+                    Cước Mobifone: 1290đ/phút<br></p>
+            </div>
+        </td>
+    </tr>
+</table>
 <script>
     function Bai1CheckNumber() {
         var bai1number1 = parseInt(document.getElementById('bai1number1').value);
