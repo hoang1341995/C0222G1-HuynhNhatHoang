@@ -8,27 +8,38 @@
 Bài 8: Game đoán số<br><br>
 <button type="button" onclick="playGame()">Chơi</button>
 <script>
-function playGame() {
-    for (;;){
-        var number1 = parseInt(prompt("Nhập vào số nhỏ nhất "));
-        var number2 = parseInt(prompt("Nhập vào số lớn nhất "));
-        var number3 = parseInt(prompt("Nhập vào số muốn đoán trong khoảng "+number1+" đến "+number2));
-        var random = Math.floor((Math.random() * (number2-number1)) + number1);
-        if (number3 === random){
-            alert("Chúc mừng, số ngẫu nhiên là "+random);
-            let question = confirm("Chơi tiếp chứ ?");
-            if (question === false){
-                break;
+    function playGame() {
+        let number1 = parseInt(prompt("Nhập vào số nhỏ nhất "));
+        let number2 = parseInt(prompt("Nhập vào số lớn nhất "));
+        let number3 = parseInt(prompt("Nhập vào số muốn đoán trong khoảng " + number1 + " đến " + number2));
+        let random = Math.floor((Math.random() * (number2 - number1)) + number1);
+        let outgame = 0
+        console.log(random);
+        for (; ;) {
+            if (number3 === random) {
+                alert("Chúc mừng, số ngẫu nhiên là " + random);
+                let question = confirm("Chơi tiếp chứ ?");
+                if (question === false) {
+                    break;
+                }
+            } else if (number3 > random) {
+                alert("Số bạn nhập LỚN hơn số random");
+                outgame++
+                number3 = parseInt(prompt("Nhập vào số muốn đoán trong khoảng " + number1 + " đến " + number2));
+            } else {
+                alert("Số bạn nhập NHỎ hơn số random");
+                outgame++
+                number3 = parseInt(prompt("Nhập vào số muốn đoán trong khoảng " + number1 + " đến " + number2));
             }
-        }else{
-            alert("Chọn sai. "+random);
-            let question = confirm("Chơi lại chứ ?");
-            if (question === false){
-                break;
+            if (outgame === 3) {
+                alert("Sai quá 3 lần");
+                let question = confirm("Chơi lại chứ ?");
+                if (question === false) {
+                    break;
+                }
             }
         }
     }
-}
 </script>
 </body>
 </html>
