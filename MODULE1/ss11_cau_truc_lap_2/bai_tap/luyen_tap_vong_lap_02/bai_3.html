@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 3</title>
+</head>
+<body>
+
+Bài 3: In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau <br><br>
+<script>
+    let string1 = "*";
+    let string2 = '&nbsp&nbsp';
+    for (i = 1; i <= 4; i++) {
+        if (i === 3 || i === 4) {
+            string2 = "*";
+            string1 = '&nbsp&nbsp';
+        }
+        for (j = 1; j <= 5; j++) {
+            var e = (6 - j);
+            var f = j;
+            if (i === 2 || i === 3) {
+                e = j;
+                f = (6 - j);
+            }
+            let c = 1;
+            let d = 1;
+            while (c <= f) {
+                document.write(string1); // *
+                c++;
+            }
+            while (d <= e) {
+                document.write(string2); //&nbsp
+                d++;
+            }
+            document.write("<br>");
+        }
+        document.write("<br>");
+    }
+</script>
+</body>
+</html>

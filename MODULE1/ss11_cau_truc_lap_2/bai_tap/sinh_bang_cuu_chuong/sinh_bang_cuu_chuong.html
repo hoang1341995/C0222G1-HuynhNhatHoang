@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sinh bảng cửu chương</title>
+</head>
+<style>
+    td{
+        text-align: center;
+        border: 2px solid black;
+    }
+    table{
+        border: 1px solid black;
+    }
+</style>
+<body>
+<script>
+    let a = 1,b = 2;
+    let table =  "<table>";
+    while(b<10){
+        table = table + "<tr>";
+        while (a <10){
+            table = table +"<td>"+ b+"x"+a+"=" + b*a+"</td>";
+            a++;
+        }
+        table = table + "</tr>";
+        a=1;
+        b++;
+    }
+    document.write(table);
+
+
+</script>
+</body>
+</html>

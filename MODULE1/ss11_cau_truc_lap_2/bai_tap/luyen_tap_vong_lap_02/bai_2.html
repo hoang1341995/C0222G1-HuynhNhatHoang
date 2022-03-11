@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2: Tính giai thừa của một số nguyên dương</title>
+</head>
+<body>
+Bài 2: Tính giai thừa của một số nguyên dương<br><br>
+<script>
+    let number = parseInt(prompt("Nhập số cần tính giai thừa"))
+    let giaithua = 1
+    for (i=1;i<=number;i++){
+        giaithua = giaithua*i;
+    }
+    document.write("Giai thừa của số "+number+" là "+giaithua.toLocaleString());
+</script>
+</body>
+</html>

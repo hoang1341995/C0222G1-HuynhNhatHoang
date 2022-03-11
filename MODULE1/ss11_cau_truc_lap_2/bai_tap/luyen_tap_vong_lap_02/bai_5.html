@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 5</title>
+</head>
+<body>
+Bài 5: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.<br><br>
+<script>
+    let number1 = parseInt(prompt("Nhập số tiền cần gửi"));
+    let number2 = parseInt(prompt("Nhập số tháng muốn gửi"));
+    var total = number1;
+    var total2 = "";
+    if(number1 > 0) {
+        for (let i = 1;i < number2+1;i++){
+            total = total*1.0058333333333333;
+            total2 += "Tháng "+i+" tiền gốc và lãi là "+ Math.trunc(total).toLocaleString()+" vnd<br>";
+        }
+
+        document.write(total2);
+    }else{
+        document.write("Các tiền phải lớn hơn 0");
+    }
+</script>
+</body>
+</html>
