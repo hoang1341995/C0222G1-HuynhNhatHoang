@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. Chương trình tìm xem V có nằm trong mảng số nguyên không? Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V is not in the array".</title>
+</head>
+<body>
+Bài 6- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. <br>Chương trình tìm xem V có nằm trong mảng số nguyên không? <br>Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V is not in the array".<br><br>
+
+<script>
+    let array1 = [];
+    let checkV;
+    for (let i = 1; i <= 10;) {
+        let input2 = prompt("Nhập phần tử thứ " + i);
+        if (isNaN(input2)) {
+            alert("Phần tử phải là số nguyên");
+        } else {
+            array1.push(input2);
+            i++;
+        }
+    }
+    document.write(array1+"<br>");
+    let V = prompt("Nhập giá trị của V");
+    for(let i=0;i<array1.length;i++){
+        if (array1[i].indexOf(V) !== -1){
+            checkV = 1;
+            break;
+        }else{
+            checkV = 0;
+        }
+    }
+    if (checkV === 0){
+        document.write("V = "+V+"<br>V is not in the array");
+    }else{
+        document.write("V = "+V+"<br>V is in the array");
+    }
+
+</script>
+</body>
+</html>

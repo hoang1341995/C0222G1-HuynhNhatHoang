@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4- Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó.</title>
+</head>
+<body>
+Bài 4- Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó.<br>
+<script>
+        let array1 = []
+        let num1 = prompt("Nhập số lượng phần tử mảng");
+        for (let i = 1; i <= num1;) {
+            let num2 = prompt("Nhập phần tử thứ " + i)
+            if (isNaN(num2)) {
+                alert("phần tử trong mảng phải là số nguyên!");
+            } else {
+                array1.push(num2);
+                i++;
+            }
+
+        }
+        let min = 0;
+        let max = array1.length - 1;
+        console.log(array1)
+        document.write("INPUT: "+array1+"<br>");
+        while (min < max) {
+            let a = array1[min];
+            array1[min] = array1[max];
+            array1[max] = a;
+            min++;
+            max--;
+        }
+        document.write("OUTPUT: "+array1);
+
+</script>
+</body>
+</html>

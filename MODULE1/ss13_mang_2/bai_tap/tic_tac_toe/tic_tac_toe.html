@@ -2,9 +2,143 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Tic tac toe</title>
 </head>
+<style>
+    table {
+        text-align: center;
+        width: 35%;
+        height: 40px;
+        margin: auto;
+        border: 1px solid #1e90ff;
+
+    }
+
+    td, th, tr {
+        width: 10%;
+        height: 35px;
+        margin: auto;
+
+    }
+
+    div {
+        width: 50%;
+        height: 100%;
+        margin: auto;
+    }
+
+    .button-player2 {
+        background-color: #0000ff85;
+        border: none;
+        padding: 15px 37px;
+    }
+
+    .button-player1 {
+        background-color: #ff000085;
+        border: none;
+        padding: 15px 37px;
+    }
+</style>
 <body>
-$END$
+<div id="carogame"></div>
+<script>
+    let carogame = document.getElementById('carogame');
+    let board = [];
+    let data = "<table border='1' width=100%><tr><th>X&#92;Y</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>";
+    for (i = 0; i < 5; i++) {
+        board[i] = [".", ".", ".", ".", "."]
+    }
+    for (i = 0; i < 5; i++) {
+        data += "<tr>";
+        data += "<td><strong>" + i + "</strong></td>";
+        for (let j = 0; j < 5; j++) {
+            data += "<td>";
+            data += board[i][j];
+            data += "</td>";
+        }
+        data += "</tr>";
+    }
+    data += "<tr><td colspan='3'><input type='button' class='button-player1' value='PLAYER 1 (X)' onclick='player(1)'></td><td colspan='3'><input type='button' class='button-player2' value='PLAYER 2 (O)' onclick='player(2)'></td></tr></table>";
+    carogame.innerHTML = data;
+</script>
+<script>
+    function player(player) {
+        var x = parseInt(prompt("X: "));
+        var y = parseInt(prompt("Y: "));
+        data = "<table border='1' width=100%><tr><th>X&#92;Y</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>";
+        let turn = "disabled";
+        console.log(board);
+        if (x < 0 || x > 4 || y < 0 || y > 4) { //check số nhập vào
+            alert("tọa độ không hợp lệ");
+            (player === 1 ? player = 2 : player = 1);
+        } else {
+            if (board[x][y].indexOf("X") === -1 && board[x][y].indexOf("O") === -1) { //check ô đã đánh dấu hay chưa
+                if (player === 1) {
+                    board[x][y] = "X";
+                    checkCaro(player,x,y)
+                } else {
+                    board[x][y] = "O";
+                    checkCaro(player,x,y)
+
+                }
+            } else {
+                (player === 1 ? player = 2 : player = 1);
+                alert("Ô này đã được đánh dấu");
+            }
+        }
+        for (let i = 0; i < 5; i++) {  ///reload game
+            data += "<tr>";
+            data += "<td><strong>" + i + "</strong></td>";
+            for (let j = 0; j < 5; j++) {
+                if (board[i][j] === "X") {
+                    data += "<td style='background-color: #ff000085'>";
+                    data += board[i][j];
+                    data += "</td>";
+                } else if (board[i][j] === "O") {
+                    data += "<td style='background-color: #0000ff85'>";
+                    data += board[i][j];
+                    data += "</td>";
+                } else {
+                    data += "<td>";
+                    data += board[i][j];
+                    data += "</td>";
+                }
+            }
+            data += "</tr>";
+        }
+        data += "<tr><td colspan='3'><input type='button' class='button-player1' value='PLAYER 1 (X)' onclick='player(1)' " + (player === 1 ? turn : "") + "></td><td colspan='3'><input type='button' class='button-player2' value='PLAYER 2 (O)' onclick='player(2)'" + (player === 2 ? turn : "") + "></td></tr></table>";
+        carogame.innerHTML = data;
+    }
+
+    function checkCaro(player, x, y) {
+        let star;
+        let user;
+        let newBoard = [];
+        if (player === 1) {
+            star = "XXX";
+            user = "PLAYER 1";
+        } else {
+            star = "OOO";
+            user = "PLAYER 2";
+        }
+        for (let xy=0;xy<5;xy++){ //check hàng ngang
+            if (board[xy].join("").indexOf(star) !== -1){
+                alert(user+" WIN!")
+            }
+        }
+        for (let m=0;m<5;m++){ //check hàng dọc
+            for (let n=0;n<5;n++){
+                newBoard.push(board[n][m]);
+            }
+            if (newBoard.join("").indexOf(star) !== -1){
+                alert(user+" WIN!!")
+                break;
+            }else{
+                newBoard = [];
+            }
+        }
+
+    }
+</script>
 </body>
 </html>

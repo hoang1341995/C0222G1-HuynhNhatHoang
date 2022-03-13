@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>[Thực hành] Tạo và thao tác với mảng</title>
 </head>
 <body>
-$END$
+<p id="showMessage"></p>
+<input type="text" id="value" placeholder="add value">
+<button type="button" id="add" onclick="addValue()">Add</button>
+<button type="button" id="display" onclick="showDisplay()">Display</button>
+<script>
+    let array1 = [];
+    let showMessage="";
+    function addValue() {
+        array1.push(document.getElementById('value').value);
+        document.getElementById('showMessage').innerHTML = "add "+document.getElementById('value').value+" successful";
+    }
+    function showDisplay() {
+        if (array1.length === 0){
+            document.getElementById('showMessage').innerHTML = "no data";
+        }else{
+            for (i=0;i<array1.length;i++){
+                showMessage += "Element "+i+" = "+array1[i]+"<br>";
+            }
+            document.getElementById('showMessage').innerHTML = showMessage;
+        }
+    }
+</script>
 </body>
 </html>

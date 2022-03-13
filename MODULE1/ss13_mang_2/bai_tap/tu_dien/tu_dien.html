@@ -2,9 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Từ điển</title>
 </head>
 <body>
-$END$
+[Bài tập] Từ điển<br>
+<p id="showMessage"></p>
+<input type="text" id="search" name="search" placeholder="tìm kiếm">
+<button type="button" onclick="checkKeyword()">Xác nhận</button>
+<br><br>
+<script>
+    let English = ["calculation", "network", "channel", "history", "convert", "disk", "chain", "protocol"];
+    let vietnam = ["Tính toán", "Mạng", "Kênh", "Lịch sử", "Chuyển đổi", "Đĩa", "Chuỗi", "Giao thức"];
+    let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let newSearch;
+
+    function checkKeyword() {
+        let search = document.getElementById('search').value;
+        newSearch = search.toLowerCase();
+        if (English.indexOf(newSearch) !== -1) {
+            document.getElementById('showMessage').innerText = vietnam[English.indexOf(newSearch)];
+        } else {
+            document.getElementById('showMessage').innerText = "từ khóa không có trong từ điển";
+        }
+    }
+</script>
 </body>
 </html>

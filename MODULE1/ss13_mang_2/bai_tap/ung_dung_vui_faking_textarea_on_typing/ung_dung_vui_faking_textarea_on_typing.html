@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng vui Faking Textarea on Typing</title>
+</head>
+<body>
+    <form name="f">
+        <textarea name="txt" cols="40" rows="10" onkeydown="typeTextarea();"></textarea>
+    </form>
+<script>
+    var a=new Array(),n="";
+    a[1]='A';a[2]='H';a[3]='I';a[4]='H';a[5]='I';a[6]=' ';a[7]='Đ';a[8]='Ồ';a[9]=' ';a[10]='N';a[11]='G';a[12]='Ố';a[13]='C';a[14]=' ';a[15]='!';a[16]='!'
+    function typeTextarea(){
+        t = document.f.txt.value;
+        j = t.length;
+        if(j > 0)
+        {
+            for(var i=1; i<=j; i++)
+            {
+                n = n + a[i];
+                if(i == 16)
+                {
+                    document.f.txt.value = "";
+                    n = "";
+                }
+            }
+        }
+        document.f.txt.value = n;
+        n="";
+        setTimeout("typeTextarea()", 1);
+        //return false;
+    }
+</script>
+</body>
+</html>

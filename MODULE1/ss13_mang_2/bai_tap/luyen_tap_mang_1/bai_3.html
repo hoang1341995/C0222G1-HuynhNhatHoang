@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3- Viết chương trình khởi tạo mảng số nguyên. Hiển hiện giá trị lớn nhất trong mảng đó. In ra giá trị trung bình của các phần tử trong mảng.</title>
+</head>
+<body>
+Bài 3- Viết chương trình khởi tạo mảng số nguyên. Hiển hiện giá trị lớn nhất trong mảng đó. In ra giá trị trung bình của các phần tử trong mảng. <br><br>
+<script>
+    let array1 = [];
+    for (let i = 1; i <= 10;) {
+        let input1 = parseInt(prompt("Nhập phần tử thứ " + i));
+        if (isNaN(input1)) {
+            alert("phân tử trong mảng phải là số nguyên!")
+        } else {
+            array1.push(input1);
+            i++;
+        }
+    }
+    let max = 0;
+    let sum = 0;
+    for (let j = 0; j < array1.length; j++) {
+        if (array1[j] > max) {
+            max = array1[j];
+        }
+        sum = sum + parseInt(array1[j]);
+    }
+    let sum2 = sum/2;
+    location1 = array1.indexOf(max);
+    document.write(array1 + "<br><br>Số lớn nhất trong mảng là " + max + ".Giá trị trung bình của các phân tử là "+sum2);
+</script>
+</body>
+</html>

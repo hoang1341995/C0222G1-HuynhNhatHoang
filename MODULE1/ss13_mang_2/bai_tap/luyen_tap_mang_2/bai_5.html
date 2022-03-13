@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5: Viết một chương trình nhập vào 2 chuỗi, sau đó kiểm tra xem hai chuỗi có giống nhau hay không.</title>
+</head>
+<body>
+Bài 5: Viết một chương trình nhập vào 2 chuỗi, sau đó kiểm tra xem hai chuỗi có giống nhau hay không.<br><br>
+<script>
+    let arrayA = [];
+    let arrayB = [];
+    let checkAB;
+    let inputA = prompt("[Chuỗi A]Nhập vào chuỗi bất kỳ");
+    let inputB = prompt("[Chuỗi B]Nhập vào chuỗi bất kỳ");
+    document.write("Chuỗi A: "+inputA+"<br>");
+    document.write("Chuỗi B: "+inputB+"<br>");
+    arrayA = inputA.split(" ");
+    arrayB = inputB.split(" ");
+    for (let i = 0;i<arrayA.length;){
+        if (arrayA[i].length<1){
+            arrayA.splice(i,1);
+        }else{
+            i++;
+        }
+    }
+    for (let i = 0;i<arrayB.length;){
+        if (arrayB[i].length<1){
+            arrayB.splice(i,1);
+        }else{
+            i++;
+        }
+    }
+    for (let i = 0;i<arrayA.length;i++){
+        if (arrayA[i]===arrayB[i]){
+            checkAB = 1;
+        }else{
+            checkAB = 0;
+            break;
+        }
+    }
+    if (checkAB === 1){
+        document.write("Chuỗi A-B giống nhau");
+    }else{
+        document.write("Chuỗi A-B khác nhau");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3: Viết một chương trình nhập vào một chuỗi và chuyển các ký tự chữ thường trong chuỗi vừa nhập sang
+        thành dạng chữ hoa</title>
+</head>
+<body>
+Bài 3: Viết một chương trình nhập vào một chuỗi và chuyển các ký tự chữ thường trong chuỗi vừa nhập sang thành dạng chữ
+hoa. <br><br>
+<script>
+    let array1 = prompt("Nhập vào 1 chuỗi bất kỳ")
+    var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    var newArray = [];
+
+    for (var x = 0; x < array1.length; x++) {
+        if (UPPER.indexOf(array1[x]) !== -1) {
+            newArray.push(array1[x].toLowerCase());
+        } else if (LOWER.indexOf(array1[x]) !== -1) {
+            newArray.push(array1[x].toUpperCase());
+        } else {
+            newArray.push(array1[x]);
+        }
+    }
+    document.write(newArray.join(""))
+</script>
+</body>
+</html>

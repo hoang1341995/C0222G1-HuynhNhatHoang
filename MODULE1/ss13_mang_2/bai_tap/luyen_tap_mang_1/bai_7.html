@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. Chương trình kiểm tra xem V có thuộc mảng đã cho không, nếu V thuộc mảng đã cho xoá V khỏi mảng (Bản chất việc xoá ở đây tức là dịch phần tử ở bên phải V sang vị trí của V, và gán 0 cho phần tử cuối cùng của mảng)</title>
+</head>
+<body>
+Bài 7- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V. <br>Chương trình kiểm tra xem V có thuộc mảng đã cho không, nếu V thuộc mảng đã cho xoá V khỏi mảng <br>(Bản chất việc xoá ở đây tức là dịch phần tử ở bên phải V sang vị trí của V, và gán 0 cho phần tử cuối cùng của mảng)<br><br>
+<script>
+    let array1 = [];
+    let checkV;
+    for (let i = 1; i <= 10;) {
+        let input2 = prompt("Nhập phần tử thứ " + i);
+        if (isNaN(input2)) {
+            alert("Phần tử phải là số nguyên");
+        } else {
+            array1.push(input2);
+            i++;
+        }
+    }
+    document.write(array1+"<br>");
+    let V = prompt("Nhập giá trị của V");
+    for(let i=0;i<array1.length;i++){
+        if (array1[i].indexOf(V) !== -1){
+            array1.splice(i,1);
+            array1.push(0);
+            checkV = 1;
+            break;
+        }else{
+            checkV = 0;
+        }
+    }
+    if (checkV === 0){
+        document.write("V = "+V+"<br>V is not in the array");
+    }else{
+        document.write(array1+"<br>V = "+V+"<br>V is in the array");
+    }
+
+
+</script>
+</body>
+</html>

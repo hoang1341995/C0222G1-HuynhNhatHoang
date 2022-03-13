@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau. Chương trình hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần tử đó.</title>
+</head>
+<body>
+Bài 2- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau. Chương trình hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần tử đó. <br><br>
+<script>
+    let array1 = [];
+    let location1 = 0;
+    for (let i = 1; i <= 10;) {
+        let input1 = prompt("Nhập phần tử thứ " + i);
+        if (isNaN(input1)) {
+            alert("phân tử trong mảng phải là số nguyên!")
+        } else {
+            array1.push(input1);
+            i++;
+        }
+    }
+    let max = array1[0];
+    for (let j = 1; j < array1.length; j++) {
+        if (array1[j] > max) {
+            max = array1[j];
+        }
+    }
+    location1 = array1.indexOf(max);
+    document.write(array1 + "<br><br>Số lớn nhất là " + max + ".Ở vị trí thứ "+location1+" trong mảng");
+</script>
+</body>
+</html>
