@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2: Tạo hàm nhận vào một đối số dạng số, tăng giá trị đối số đó lên 1 và trả lại giá trị cho lời gọi hàm. Gọi hàm từ trong phần <body> của trang web và hiển thị kết quả lên màn hình.</title>
+</head>
+<body>
+Bài 2: Tạo hàm nhận vào một đối số dạng số, tăng giá trị đối số đó lên 1 và trả lại giá trị cho lời gọi hàm. <br>Gọi hàm từ trong phần < body > của trang web và hiển thị kết quả lên màn hình.<br><br>
+
+<input type="text" id="input1" oninput="myFunction()" placeholder="Nhập vào 1 số bất kỳ">
+<p id="showMessage"></p>
+<script>
+    function myFunction(){
+        let input1 = parseInt(document.getElementById('input1').value);
+        document.getElementById('showMessage').innerHTML = numberUp(input1);
+    }
+    function numberUp(number1) {
+        return number1+1;
+    }
+
+</script>
+</body>
+</html>

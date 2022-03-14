@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3: Tạo hàm nhận vào hai tham số. Nếu giá trị của tham số thứ nhất lớn hơn tham số thứ hai, hiển thị hộp
+        thoại thông báo cho người dùng. Nếu giá trị của tham số thứ nhất nhỏ hơn hoặc bằng tham số thứ hai, trả về tổng
+        của hai tham số.</title>
+</head>
+<body>
+Bài 3: Tạo hàm nhận vào hai tham số. Nếu giá trị của tham số thứ nhất lớn hơn tham số thứ hai, hiển thị hộp thoại thông
+báo cho người dùng. <br>Nếu giá trị của tham số thứ nhất nhỏ hơn hoặc bằng tham số thứ hai, trả về tổng của hai tham số.<br><br>
+<script>
+    function checkNumber(number1, number2) {
+        if (number1 > number2) {
+            return "Số thứ nhất lớn hơn số thứ 2";
+        } else {
+            return number1 + number2;
+        }
+    }
+    while (true) {
+        var number1 = parseInt(prompt("Nhập vào số thứ nhất"));
+        var number2 = parseInt(prompt("Nhập vào số thứ hai"));
+        if (isNaN(number1) && isNaN(number2)) {
+            alert("2 số phải là số nguyên")
+        } else {
+            break;
+        }
+    }
+    alert(checkNumber(number1, number2));
+
+
+</script>
+</body>
+</html>

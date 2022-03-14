@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Chuyển đổi giữa feet và meters</title>
+</head>
+<body>
+<input type="text" id="input1" oninput="kiemTraNhietDo()">
+<select id="option" onchange="kiemTraNhietDo()">
+    <option value="met">meter</option>
+    <option value="feet">foot</option>
+</select>
+<p id="showMessage"></p>
+<script>
+    function footToMeter(value) {
+        return 0.305 * value;
+    }
+
+    function meterToFoot(value) {
+        return 3.279 * value;
+    }
+
+    function kiemTraNhietDo() {
+        let option1 = document.getElementById('option').value;
+        let input1 = parseInt(document.getElementById('input1').value);
+            if (option1 === "met") {
+                document.getElementById('showMessage').innerHTML = meterToFoot(input1) + " feet";
+            } else {
+                document.getElementById('showMessage').innerHTML = footToMeter(input1) + " meter";
+            }
+
+    }
+</script>
+</body>
+</html>

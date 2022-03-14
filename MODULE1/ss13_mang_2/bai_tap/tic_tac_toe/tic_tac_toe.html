@@ -75,10 +75,10 @@
             if (board[x][y].indexOf("X") === -1 && board[x][y].indexOf("O") === -1) { //check ô đã đánh dấu hay chưa
                 if (player === 1) {
                     board[x][y] = "X";
-                    checkCaro(player,x,y)
+                    checkCaro(player, x, y)
                 } else {
                     board[x][y] = "O";
-                    checkCaro(player,x,y)
+                    checkCaro(player, x, y)
 
                 }
             } else {
@@ -112,29 +112,80 @@
 
     function checkCaro(player, x, y) {
         let star;
+        let star1;
         let user;
         let newBoard = [];
         if (player === 1) {
             star = "XXX";
+            star1 = "X"
             user = "PLAYER 1";
         } else {
             star = "OOO";
+            star1 = "O"
             user = "PLAYER 2";
         }
-        for (let xy=0;xy<5;xy++){ //check hàng ngang
-            if (board[xy].join("").indexOf(star) !== -1){
-                alert(user+" WIN!")
+        for (let xy = 0; xy < 5; xy++) { //check hàng ngang
+            if (board[xy].join("").indexOf(star) !== -1) {
+                alert(user + " WIN!")
             }
         }
-        for (let m=0;m<5;m++){ //check hàng dọc
-            for (let n=0;n<5;n++){
+        for (let m = 0; m < 5; m++) { //check hàng dọc
+            for (let n = 0; n < 5; n++) {
                 newBoard.push(board[n][m]);
             }
-            if (newBoard.join("").indexOf(star) !== -1){
-                alert(user+" WIN!!")
+            if (newBoard.join("").indexOf(star) !== -1) {
+                alert(user + " WIN!!")
                 break;
-            }else{
+            } else {
                 newBoard = [];
+            }
+        }
+        if (x < 3 && y < 3) { //check chéo  trái trên xuống
+            let checknum1 = 0;
+            for (let i = 1;i<=2;i++){
+                if (board[x+i][y+i].indexOf(star1) !== -1){
+                    checknum1++;
+                }
+                if (checknum1 ===2){
+                    alert(user + " WIN!")
+                    break;
+                }
+            }
+        }
+        if (x >= 2 && y <= 4) { //check chéo  phải dưới lên
+            let checknum1 = 0;
+            for (let i = 1;i<=2;i++){
+                if (board[x-i][y-i].indexOf(star1) !== -1){
+                    checknum1++;
+                }
+                if (checknum1 ===2){
+                    alert(user + " WIN!")
+                    break;
+                }
+            }
+        }
+        if (x >= 2 && y < 3) { //check chéo  trái dưới lên
+            let checknum1 = 0;
+            for (let i = 1;i<=2;i++){
+                if (board[x-i][y+i].indexOf(star1) !== -1){
+                    checknum1++;
+                }
+                if (checknum1 ===2){
+                    alert(user + " WIN!")
+                    break;
+                }
+            }
+        }
+        if (x < 3  && y >= 2) { //check chéo  phải trên dưới
+            let checknum1 = 0;
+            for (let i = 1;i<=2;i++){
+                if (board[x+i][y-i].indexOf(star1) !== -1){
+                    checknum1++;
+                }
+                if (checknum1 ===2){
+                    alert(user + " WIN!")
+                    break;
+                }
             }
         }
 

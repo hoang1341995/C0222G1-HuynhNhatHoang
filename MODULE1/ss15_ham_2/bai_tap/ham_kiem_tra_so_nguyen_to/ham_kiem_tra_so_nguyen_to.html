@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Hàm kiểm tra số nguyên tố</title>
+</head>
+<body>
+[Bài tập] Hàm kiểm tra số nguyên tố <br><br>
+<script>
+    function isPrime(number) {
+        var checknumber = true;
+        if (number < 2) {
+            checknumber = false;
+        } else {
+            for (var i = 2; i < number - 1; i++) {
+                if (number % i === 0) {
+                    checknumber = false;
+                    break;
+                }
+            }
+        }
+        if (checknumber === true) {
+            document.write(number + " là số nguyên tố");
+        } else {
+            document.write(number + " không phải là số nguyên tố");
+        }
+    }
+
+    let number = prompt("Nhập vào 1 số nguyên tố");
+    isPrime(number);
+
+</script>
+</body>
+</html>
