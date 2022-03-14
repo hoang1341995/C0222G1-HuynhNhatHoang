@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2: Viết hàm tính diện tích, hàm tính chu vi hình tròn. Gọi hàm vừa xây dựng được</title>
+</head>
+<body>
+Bài 2: Viết hàm tính diện tích, hàm tính chu vi hình tròn. Gọi hàm vừa xây dựng được<br><br>
+<input type="text" id="input1" placeholder="Nhập bán kính hình tròn">
+<input type="button" id="button1" onclick="myFunction()" value="Xác nhận">
+<p id="showMessage"></p>
+<script>
+    function chuVi(input1) {
+        return (input1*2)*3.14;
+    }
+    function dienTich(input1) {
+        return (input1*input1)*3.14;
+    }
+    function myFunction(){
+        let input1 = document.getElementById('input1').value;
+        document.getElementById('showMessage').innerHTML = "Chu vi hình tròn là "+chuVi(input1)+"<br>Diện tích hình tròn là "+dienTich(input1)+"<br>";
+    }
+</script>
+</body>
+</html>

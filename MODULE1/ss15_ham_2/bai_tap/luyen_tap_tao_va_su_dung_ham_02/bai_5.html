@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5: Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất.</title>
+</head>
+<body>
+Bài 5: Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất.<br><br>
+<script>
+    function mathFunction(array1) {
+        let min = array1[0]
+        for (let i = 1; i < array1.length; i++) {
+            if (array1[i] < min) {
+                min = array1[i];
+            }
+        }
+        return min;
+    }
+
+    let array1 = [];
+    let input1;
+    for (let i = 1; i <= 3;) {
+        input1 = parseInt(prompt("Nhập số thứ " + i))
+        if (isNaN(input1)) {
+            alert("Vui lòng nhập vào số nguyên");
+        } else {
+            array1.push(input1);
+            i++;
+        }
+    }
+    alert(mathFunction(array1) + " là số nhỏ nhất");
+
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[*Bài tập] Ứng dụng quản lý sản phẩm sử dụng hàm</title>
+</head>
+<link rel="stylesheet" href="css/style.css">
+<body>
+[*Bài tập] Ứng dụng quản lý sản phẩm sử dụng hàm<br><br>
+<div>
+    <span>Add New Product</span>
+    <input type="text" name="addProduct" id="addProduct" placeholder="New Product">
+    <input type="button" name="add" id="add" onclick="addArray()" value="Add">
+    <p id="showMessage"></p>
+</div>
+<br/>
+<div>
+    <span>Display All Product</span>
+    <span style="text-align: right" id="productNumber"></span>
+    <table id="table" class="style-table">
+
+    </table>
+</div>
+<script>
+    let array1 = ["Iphone 13 pro max","Samsung galaxy S22","Xiaomi 11","Iphone 12 pro","Samsung Galaxy Z Fold3","Samsung Galaxy Z Flip3","OPPO Find X3 Pro"];
+    let codeHtml="";
+    for(let i = 0;i<array1.length;i++){
+        codeHtml+= "<tr><td>"+array1[i]+"</td><td><input type='button' name='edit' id='edit' onclick='editArray("+i+")' value='Edit'></td><td><input type='button' name='edit' id='edit' onclick='deleteArray("+i+")' value='Delete'></td></tr>"
+        document.getElementById('productNumber').innerHTML = array1.length+" products";
+    }
+    document.getElementById('table').innerHTML = codeHtml;
+    codeHtml="";
+    function editArray(value) {
+        let newProduct = prompt("Đổi tên sản phẩm",array1[value])
+        array1[value] = newProduct;
+        loadTable();
+    }
+    function deleteArray(value) {
+        if (confirm("Delete "+array1[value]+" ?")){
+            array1.splice(value,1);
+            loadTable();
+        }
+    }
+    function addArray() {
+        let addProduct = document.getElementById('addProduct').value;
+        array1.push(addProduct);
+        loadTable();
+    }
+    function loadTable() {
+        for(let i = 0;i<array1.length;i++){
+            codeHtml+= "<tr><td>"+array1[i]+"</td><td><input type='button' name='edit' id='edit' onclick='editArray("+i+")' value='Edit'></td><td><input type='button' name='edit' id='edit' onclick='deleteArray("+i+")' value='Delete'></td></tr>"
+        }
+        document.getElementById('table').innerHTML = codeHtml;
+        codeHtml="";
+        document.getElementById('productNumber').innerHTML = array1.length+" products";
+        return;
+    }
+</script>
+</body>
+</html>

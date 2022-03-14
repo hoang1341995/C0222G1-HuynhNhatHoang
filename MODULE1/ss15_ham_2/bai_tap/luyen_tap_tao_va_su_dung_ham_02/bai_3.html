@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3: Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.</title>
+</head>
+<body>
+Bài 3: Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.<br><br>
+<script>
+    let input1 = parseInt(prompt("Nhập vào 1 số tính giai thừa"));
+    alert(mathFunction(input1));
+    function mathFunction(input1) {
+        let number1 = input1;
+        for (let i = 2; i < input1; i++) {
+            number1 *= i;
+        }
+        return number1;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6: Viết hàm nhận vào một số, kiểm tra xem nếu số đưa vào có phải là nguyên dương không. Nếu là nguyên dương trả về true, ngược lại trả về false.</title>
+</head>
+<body>
+Bài 6: Viết hàm nhận vào một số, kiểm tra xem nếu số đưa vào có phải là nguyên dương không. <br>Nếu là nguyên dương trả về true, ngược lại trả về false.<br><br>
+<script>
+    function mathFunction(input1) {
+        if (input1>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    let input1;
+    while (true){
+        input1 = parseInt(prompt("Nhập vào 1 số nguyên"))
+        if (isNaN(input1)){
+            alert("Vui lòng nhập vào 1 số nguyên")
+        }else{
+            break;
+        }
+    }
+    alert(mathFunction(input1));
+</script>
+</body>
+</html>

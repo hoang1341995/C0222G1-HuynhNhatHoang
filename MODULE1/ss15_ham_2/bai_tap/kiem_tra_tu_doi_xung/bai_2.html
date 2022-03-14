@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[*Bài tập] Kiểm tra từ đối xứng</title>
+</head>
+<body>
+[*Bài tập] Kiểm tra từ đối xứng<br>
+(2) Bỏ qua hai ký tự đầu và cuối, kiểm tra xem phần còn lại của chuỗi con là một palindrome.<br>
+<input type="text" name="input1" id="input1" placeholder="Nhập vào 1 chuỗi">
+<input type="button" name="button" id="button" onclick="myFunction()" value="Check">
+<p id="showMessage"></p>
+<script>
+    function isPalindrome(s) {
+        let countCheck = false;
+        let min = 1;
+        let max = s.length - 2;
+        while (min<max){
+            if (s[min] === s[max]){
+                countCheck = true;
+            }else{
+                countCheck = false;
+                break;
+            }
+            min++;
+            max--;
+        }
+        return countCheck;
+    }
+    function myFunction() {
+        let s = document.getElementById('input1').value.split("");
+
+        console.log(s);
+        document.getElementById('showMessage').innerHTML = isPalindrome(s);
+    }
+</script>
+
+</body>
+</html>

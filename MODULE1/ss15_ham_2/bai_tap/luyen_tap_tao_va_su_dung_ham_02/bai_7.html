@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7: Viết hàm truyền vào 2 số nguyên bất kì, thực hiện đổi chỗ hai số nguyên đó.</title>
+</head>
+<body>
+Bài 7: Viết hàm truyền vào 2 số nguyên bất kì, thực hiện đổi chỗ hai số nguyên đó.<br><br>
+<script>
+    function mathFunction(a,b) {
+        let c;
+        c = a;
+        a = b;
+        b = c;
+        return "Số A: "+a+" | Số B: "+b;
+    }
+    let a;
+    let b;
+    while (true){
+        a = parseInt(prompt("Nhập số A"));
+        b = parseInt(prompt("Nhập số B"));
+        if (isNaN(a)&&isNaN(b)){
+            alert("Số A và B phải là số nguyên");
+        }else{
+            break;
+        }
+
+    }
+    alert(mathFunction(a,b));
+</script>
+</body>
+</html>

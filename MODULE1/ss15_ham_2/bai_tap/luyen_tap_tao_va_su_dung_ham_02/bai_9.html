@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong
+        mảng không. Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1. </title>
+</head>
+<body>
+Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không.
+<br>Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.<br><br>
+<script>
+    function checkInput(array1, input2) {
+        let count = 0;
+        for (let i = 0; i < array1.length; i++) {
+            if (array1[i].indexOf(input2) !== -1) {
+                count++;
+            }
+        }
+        if (count > 0) {
+            return input2 + " xuất hiện " + count + " lần trong mảng";
+        } else {
+            return -1;
+        }
+    }
+
+    let input1 = prompt("Nhập 1 mảng ký tự bất kỳ");
+    let array1 = [];
+    let input2 = prompt("Nhập giá trị cần tìm");
+    array1 = input1.split("");
+    document.write(input1 + "<br>");
+    document.write(checkInput(array1, input2));
+</script>
+</body>
+</html>
