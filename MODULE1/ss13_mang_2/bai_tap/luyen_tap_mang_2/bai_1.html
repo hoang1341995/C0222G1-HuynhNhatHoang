@@ -2,21 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Viết chương trình khởi tạo mảng 2 chiều, gồm một bộ các phần tử có sẵn,  in ra các phần tử trong mảng.</title>
+    <title>Viết chương trình khởi tạo mảng 2 chiều, gồm một bộ các phần tử có sẵn, in ra các phần tử trong mảng.</title>
 </head>
 <body>
-Viết chương trình khởi tạo mảng 2 chiều, gồm một bộ các phần tử có sẵn,  in ra các phần tử trong mảng.<br><br>
+Viết chương trình khởi tạo mảng 2 chiều, gồm một bộ các phần tử có sẵn, in ra các phần tử trong mảng.<br><br>
 <script>
-    let array1=[];
-    let random;
-    for(let i = 0; i<5;i++){
-        array1[i] = [0,0,0,0,0];
-        for(let j = 0; j<5;j++){
-            random = Math.floor((Math.random()*9)+1);
-            array1[i][j] = j+random;
+    let array1 = [
+        [1, 2, 1, 24],
+        [8, 11, 9, 4],
+        [7, 0, 7, 27],
+        [7, 4, 28, 14],
+        [3, 10, 26, 7]
+    ];
+    for (let i = 0; i < array1.length; i++) {
+        document.write(`row${i}<br>`)
+        for (let j = 0; j < array1[i].length; j++) {
+            document.write(`${array1[i][j]}<br>`)
         }
     }
-    console.log(array1);
 </script>
 </body>
 </html>

@@ -32,8 +32,10 @@
     codeHtml="";
     function editArray(value) {
         let newProduct = prompt("Đổi tên sản phẩm",array1[value])
-        array1[value] = newProduct;
-        loadTable();
+        if (newProduct !== null){
+            array1[value] = newProduct;
+            loadTable();
+        }
     }
     function deleteArray(value) {
         if (confirm("Delete "+array1[value]+" ?")){

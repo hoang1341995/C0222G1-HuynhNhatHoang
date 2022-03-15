@@ -11,14 +11,14 @@ Bài 4: Viết một chương trình để đếm số từ trong một chuỗi<
     let num1 = 0;
     let input1 = prompt("Nhập vào chuỗi bất kỳ");
     document.write(input1+"<br>");
-    array1 = input1.split(" ");
-    for (let i = 0;i<array1.length;){
-            if (array1[i].length<1){
-                array1.splice(i,1);
-            }else{
-                i++;
-            }
-    }
+    array1 = input1.split("");
+    // for (let i = 0;i<array1.length;){
+    //         if (array1[i].length<1){
+    //             array1.splice(i,1);
+    //         }else{
+    //             i++;
+    //         }
+    // }
     //console.log(array1)
     document.write("Chuỗi nhập vào có "+array1.length+" từ");
 </script>

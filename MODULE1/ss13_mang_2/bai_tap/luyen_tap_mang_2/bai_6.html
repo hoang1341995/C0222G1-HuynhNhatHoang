@@ -8,7 +8,6 @@
 Bài 6: Viết chương trình nhập vào một mảng ký tự, tìm tất cả các ký tự trong mảng là (-) và thay thế các ký tự này bởi ký tự ( _ )<br><br>
 <script>
     let array1 = [];
-    let array2 = [];
     let input1 = prompt('Nhập số lượng phần tử trong mảng');
     for (let i = 1; i <= input1; i++) {
         let input2 = prompt("Nhập phần tử thứ " + i);
@@ -16,10 +15,15 @@ Bài 6: Viết chương trình nhập vào một mảng ký tự, tìm tất c�
     }
     document.write(array1 + "<br>");
     for (let i=0;i<array1.length;i++){
-        array2.push(array1[i].replace(/-/g,"_"));
+        let newArray1 = array1[i].split("");
+        for (let j = 0;j<newArray1.length;j++){
+            if (newArray1[j]==="-"){
+                newArray1[j] = "_";
+            }
+        }
+        array1[i] = newArray1.join("");
     }
-    document.write(array2);
-
+    document.write(array1);
 </script>
 </body>
 </html>
