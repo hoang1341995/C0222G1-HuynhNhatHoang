@@ -9,26 +9,38 @@
 Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không.
 <br>Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.<br><br>
 <script>
-    function checkInput(array1, input2) {
+    let array1 = [];
+
+    function checkNumber(array, input) {
         let count = 0;
-        for (let i = 0; i < array1.length; i++) {
-            if (array1[i].indexOf(input2) !== -1) {
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].indexOf(input) !== -1) {
                 count++;
             }
         }
-        if (count > 0) {
-            return input2 + " xuất hiện " + count + " lần trong mảng";
-        } else {
+        if (count === 0) {
             return -1;
+        } else {
+            return count;
         }
     }
 
-    let input1 = prompt("Nhập 1 mảng ký tự bất kỳ");
-    let array1 = [];
-    let input2 = prompt("Nhập giá trị cần tìm");
-    array1 = input1.split("");
-    document.write(input1 + "<br>");
-    document.write(checkInput(array1, input2));
+    while (true) {
+        let input1 = parseInt(prompt("Nhập độ dài của mảng"))
+        if (!isNaN(input1) && input1 > 0) {
+            for (let i = 1; i <= input1; i++) {
+                let input2 = prompt("Nhập phần tử thứ " + i);
+                array1.push(input2);
+
+            }
+            break;
+        } else {
+            alert("độ dài không hợp lệ");
+        }
+    }
+    let input1 = prompt("Nhập phần tử cần tìm");
+    document.write(array1 + "<br>")
+    document.write(`${input1} xuất hiện ${checkNumber(array1, input1)} trong mảng`);
 </script>
 </body>
 </html>

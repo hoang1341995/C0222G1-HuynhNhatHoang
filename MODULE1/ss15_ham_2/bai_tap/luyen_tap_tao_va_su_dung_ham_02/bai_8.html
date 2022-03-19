@@ -10,19 +10,20 @@ Bài 8: Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đả
     function reverseArray(array1) {
         return array1.reverse();
     }
+
     let input1 = parseInt(prompt("Nhập vào số phần tử cho mảng"))
     let input2;
     let array1 = [];
-    for (let i =0;i<input1;){
-        input2 = parseInt(prompt("Nhập giá trị phần tử thứ "+i));
-        if (isNaN(input2)){
+    for (let i = 0; i < input1;) {
+        input2 = parseInt(prompt("Nhập giá trị phần tử thứ " + i));
+        if (isNaN(input2)) {
             alert("giá trị nhập vào phải là số nguyên");
-        }else{
+        } else {
             array1.push(input2);
             i++;
         }
     }
-    document.write(array1+"<br>");
+    document.write(array1 + "<br>");
     document.write(reverseArray(array1));
 </script>
 </body>

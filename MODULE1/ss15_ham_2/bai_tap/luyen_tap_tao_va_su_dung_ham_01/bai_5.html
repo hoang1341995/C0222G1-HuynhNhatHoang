@@ -9,12 +9,11 @@
 <p id="showMessage"></p>
 <br><br>
 <script>
-    let star1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
-    let star2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
     let Search = prompt("Nhập tên ngôi sao");
-    alert(checkStar(Search,star1,star2));
-
-    function checkStar(Search,star1,star2) {
+    alert(checkStar(Search));
+    function checkStar(Search) {
+        let star1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let star2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
         if (star1.indexOf(Search) !== -1) {
             return "Sao "+Search+" trong chòm sao "+star2[star1.indexOf(Search)];
         } else {

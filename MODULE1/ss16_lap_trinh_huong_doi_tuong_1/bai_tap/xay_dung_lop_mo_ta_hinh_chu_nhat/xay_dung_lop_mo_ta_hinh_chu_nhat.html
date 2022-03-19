@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+<body>
+[Bài tập] Xây dựng lớp mô tả hình chữ nhật<br><br>
+<div>
+    <input type="text" id="width" name="width" placeholder="Enter width">
+    <input type="text" id="height" name="height" placeholder="Enter height">
+    <input type="button" id="button" onclick="myFunction()" value="submit">
+</div>
+<p id="showMessage"></p>
+<canvas id="canvas" width="1400px" height="750px"></canvas>
+</body>
+<script>
+    let Rectangle = function (width, height) {
+        this.width = width;
+        this.height = height;
+        this.dienTich = function () {
+            // s = w*h
+            return width * height;
+        }
+        this.chuVi = function () {
+            //p = (w+h)*2
+            return (width + height) * 2;
+        }
+    }
+
+    function myFunction() {
+        let width = parseInt(document.getElementById('width').value);
+        let height = parseInt(document.getElementById('height').value);
+        if (!isNaN(width) && !isNaN(height)) {
+            let showdata = new Rectangle(width, height);
+            document.getElementById('showMessage').innerHTML = `Diện tích: ${showdata.dienTich()}<br>Chu vi: ${showdata.chuVi()}`
+        } else {
+            alert("không hợp lệ");
+        }
+        var ctx = document.getElementById("canvas").getContext("2d");
+        ctx.fillStyle = "#FF0000";
+        ctx.fillRect(0, 0, width, height);
+    }
+
+</script>
+</html>

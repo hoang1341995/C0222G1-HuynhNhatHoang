@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Xây dựng lớp mô tả điện thoại</title>
+</head>
+<body>
+[Bài tập] Xây dựng lớp mô tả điện thoại<br><br>
+<table>
+    <tr>
+        <td>IPHONE: <input type="button" id="startIphone" value="Tắt" onclick="obIphone.setStatus()"> <span
+                id="batteryIphone">100</span>%<input type="button" id="chargeIphone" value="Cắm sạc"
+                                                     onclick="obIphone.setCharge()"></td>
+        <td>NOKIA: <input type="button" id="startNokia" value="Tắt" onclick="obNokia.setStatus()"> <span
+                id="batteryNokia">100</span>%<input type="button" id="chargeNokia" value="Cắm sạc"
+                                                    onclick="obNokia.setCharge()"></td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" id="inputIphone" placeholder="Nhập nội dung">
+            <input type="button" id="sendMessageIphone" value="Gửi tin nhắn"
+                   onclick="obIphone.sendMessage(obNokia,document.getElementById('inputIphone').value)">
+        </td>
+        <td>
+            <input type="text" id="inputNokia" placeholder="Nhập nội dung">
+            <input type="button" id="sendMessageNokia" value="Gửi tin nhắn"
+                   onclick="obNokia.sendMessage(obIphone,document.getElementById('inputNokia').value)">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" id="inboxIphone" value="Hộp thư đến (0)" onclick="obIphone.inbox()">
+            <input type="button" id="messageSentIphone" value="Tin nhắn đã gửi" onclick="obIphone.messageSent()">
+        </td>
+        <td>
+            <input type="button" id="inboxNokia" value="Hộp thư đến (0)" onclick="obNokia.inbox()">
+            <input type="button" id="messageSentNokia" value="Tin nhắn đã gửi" onclick="obNokia.messageSent()">
+        </td>
+    </tr>
+    <tr>
+        <td><label for="everythingIphone"></label><textarea id="everythingIphone" rows="10" cols="50"></textarea></td>
+        <td><label for="everythingNokia"></label><textarea id="everythingNokia" rows="10" cols="50"></textarea></td>
+        <!--        &#10;-->
+    </tr>
+</table>
+
+</body>
+<script>
+
+    class Nokia {
+        constructor(name, status, battery, diskMessage, diskMessageSent, charge) {
+            this.name = name;
+            this.status = status;
+            this.battery = battery;
+            this.diskMessage = diskMessage;
+            this.diskMessageSent = diskMessageSent;
+            this.charge = charge;
+        }
+
+        inbox() {
+            if (this.battery > 0) {
+                obNokia.setBattery();
+                if (this.diskMessage.length === 0) {
+                    document.getElementById('everythingNokia').innerHTML = "Tin nhắn trống";
+                } else {
+                    document.getElementById('everythingNokia').innerHTML = "";
+                    for (let i = 0; i < this.diskMessage.length; i++) {
+                        document.getElementById('everythingNokia').innerHTML += `${i + 1} ${this.diskMessage[i]} &#10;`;
+                    }
+                    this.diskMessage = [];
+                    document.getElementById('inboxNokia').value = `Hộp thư đến (0)`;
+                }
+            } else {
+                alert(this.name + " đã hết pin");
+            }
+        }
+
+        messageSent() {
+            if (this.battery > 0) {
+                obNokia.setBattery();
+                if (this.diskMessageSent.length === 0) {
+                    document.getElementById('everythingNokia').innerHTML = "Tin nhắn đã gửi trống";
+                } else {
+                    document.getElementById('everythingNokia').innerHTML = "";
+                    for (let i = 0; i < this.diskMessageSent.length; i++) {
+                        document.getElementById('everythingNokia').innerHTML += this.diskMessageSent[i] + `&#10;`;
+                    }
+                }
+            } else {
+                alert(this.name + " đã hết pin");
+            }
+        }
+
+        setBattery() {
+            --this.battery;
+            document.getElementById("batteryNokia").innerHTML = this.battery;
+            //alert(this.battery)
+        }
+
+        setStatus() {
+            if (this.status === true) {
+                document.getElementById("startNokia").value = "Bật";
+                this.status = false;
+                document.getElementById("everythingNokia").innerHTML = `${this.name} đã tắt`;
+                document.getElementById("inputNokia").disabled = true;
+                document.getElementById("sendMessageNokia").disabled = true;
+                document.getElementById("inboxNokia").disabled = true;
+                document.getElementById("messageSentNokia").disabled = true;
+
+                //return "đã tắt máy";
+            } else {
+                document.getElementById("startNokia").value = "Tắt";
+                this.status = true;
+                document.getElementById("everythingNokia").innerHTML = `${this.name} đã bật`;
+                document.getElementById("inputNokia").disabled = false;
+                document.getElementById("sendMessageNokia").disabled = false;
+                document.getElementById("inboxNokia").disabled = false;
+                document.getElementById("messageSentNokia").disabled = false;
+                //return "đã bật máy";
+            }
+        }
+
+        setCharge() {
+            if (this.status === true) {
+                document.getElementById("chargeNokia").value = "Cắm sạc";
+                this.status = false;
+                document.getElementById("everythingNokia").innerHTML = `${this.name} đã ngắt sạc`;
+            } else {
+                if (this.battery === 100) {
+                    document.getElementById("everythingNokia").innerHTML = `Pin đầy, không cho sạc`;
+                } else {
+                    document.getElementById("chargeNokia").value = "Ngắt sạc";
+                    this.status = true;
+                    let oldBattery = this.battery;
+                    this.battery = 100;
+                    document.getElementById("batteryNokia").innerHTML = this.battery;
+                    document.getElementById("everythingNokia").innerHTML = `Đã sạc ${this.name} từ ${oldBattery} lên ${this.battery}`;
+                }
+            }
+        }
+
+        sendMessage(obIphone, content) {
+            if (this.battery > 0) {
+                //document.getElementById('everythingNokia').innerHTML = `${this.name}: ${content} &#10;`;
+                obIphone.diskMessage.push(`${this.name}: ${content} &#10;`);
+                let number = obIphone.diskMessage.length;
+                document.getElementById('inboxIphone').value = `Hộp thư đến (${number})`;
+                obNokia.setBattery();
+                let Message = `Send to ${obIphone.name} content:"${content}"`;
+                this.diskMessageSent.push(Message);
+
+            } else {
+                document.getElementById("batteryNokia").value = this.battery;
+                alert(`${this.name} đã hết pin`);
+            }
+
+        }
+    }
+
+    class Iphone {
+        constructor(name, status, battery, diskMessage, diskMessageSent, charge) {
+            //super(status, battery, diskMessage, diskMail, charging, content);
+            this.name = name;
+            this.status = status;
+            this.battery = battery;
+            this.diskMessage = diskMessage;
+            this.diskMessageSent = diskMessageSent;
+            this.charge = charge;
+        }
+
+        inbox() {
+            if (this.battery > 0) {
+                obIphone.setBattery();
+                if (this.diskMessage.length === 0) {
+                    document.getElementById('everythingIphone').innerHTML = "Tin nhắn trống";
+                } else {
+                    document.getElementById('everythingIphone').innerHTML = "";
+                    for (let i = 0; i < this.diskMessage.length; i++) {
+                        document.getElementById('everythingIphone').innerHTML += `${i + 1} ${this.diskMessage[i]} &#10;`;
+                    }
+                    this.diskMessage = [];
+                    document.getElementById('inboxIphone').value = `Hộp thư đến (0)`;
+                }
+            } else {
+                alert(this.name + " đã hết pin");
+            }
+        }
+
+        messageSent() {
+            if (this.battery > 0) {
+                obIphone.setBattery();
+                if (this.diskMessageSent.length === 0) {
+                    document.getElementById('everythingIphone').innerHTML = "Tin nhắn đã gửi trống";
+                } else {
+                    document.getElementById('everythingIphone').innerHTML = "";
+                    for (let i = 0; i < this.diskMessageSent.length; i++) {
+                        document.getElementById('everythingIphone').innerHTML += this.diskMessageSent[i] + `&#10;`;
+                    }
+                }
+            } else {
+                alert(this.name + "đã hết pin");
+            }
+        }
+
+        setBattery() {
+            --this.battery;
+            document.getElementById("batteryIphone").innerHTML = this.battery;
+            //alert(this.battery);
+        }
+
+        setStatus() {
+            if (this.status === true) {
+                document.getElementById("startIphone").value = "Bật";
+                this.status = false;
+                document.getElementById("everythingIphone").innerHTML = `${this.name} đã tắt`;
+                document.getElementById("inputIphone").disabled = true;
+                document.getElementById("sendMessageIphone").disabled = true;
+                document.getElementById("inboxIphone").disabled = true;
+                document.getElementById("messageSentIphone").disabled = true;
+                //return "đã tắt máy";
+            } else {
+                document.getElementById("startIphone").value = "Tắt";
+                this.status = true;
+                document.getElementById("everythingIphone").innerHTML = `${this.name} đã bật`;
+                document.getElementById("inputIphone").disabled = false;
+                document.getElementById("sendMessageIphone").disabled = false;
+                document.getElementById("inboxIphone").disabled = false;
+                document.getElementById("messageSentIphone").disabled = false;
+                //return "đã bật máy";
+            }
+        }
+
+        setCharge() {
+            if (this.status === true) {
+                document.getElementById("chargeIphone").value = "Cắm sạc";
+                this.status = false;
+                document.getElementById("everythingIphone").innerHTML = `${this.name} đã ngắt sạc`;
+            } else {
+                if (this.battery === 100) {
+                    document.getElementById("everythingIphone").innerHTML = `Pin đầy, không cho sạc`;
+                } else {
+                    document.getElementById("chargeIphone").value = "Ngắt sạc";
+                    this.status = true;
+                    let oldBattery = this.battery;
+                    this.battery = 100;
+                    document.getElementById("batteryIphone").innerHTML = this.battery;
+                    document.getElementById("everythingIphone").innerHTML = `Đã sạc ${this.name} từ ${oldBattery} lên ${this.battery}`;
+                }
+            }
+        }
+
+        sendMessage(obNokia, content) {
+            if (this.battery > 0) {
+                //document.getElementById('everythingNokia').innerHTML = `${this.name}: ${content} &#10;`;
+                obNokia.diskMessage.push(`${this.name}: ${content} &#10;`);
+                let number = obNokia.diskMessage.length;
+                document.getElementById("everythingIphone").innerHTML = `Đã gửi tin nhắn đến ${obNokia.name}`;
+                document.getElementById('inboxNokia').value = `Hộp thư đến (${number})`;
+                obIphone.setBattery();
+                let Message = `Send to ${obNokia.name} content:"${content}"`;
+                this.diskMessageSent.push(Message);
+
+            } else {
+                document.getElementById("batteryIphone").value = this.battery;
+                alert(`${this.name} đã hết pin`);
+            }
+
+        }
+
+    }
+
+    let everythingIphone = "";
+    let everythingNokia = "";
+    let diskMessageIphone = [];
+    let diskMessageNokia = [];
+    let diskMessageSentIphone = [];
+    let diskMessageSentNokia = [];
+    let obIphone = new Iphone("iphone", true, 100, diskMessageIphone, diskMessageSentIphone, true);
+    let obNokia = new Nokia("nokia", true, 100, diskMessageNokia, diskMessageSentNokia, true);
+    // alert(obIphone.sendMessage(obNokia,"hello nokia"))
+</script>
+</html>
