@@ -11,7 +11,6 @@
             this.name = name;
             this.weight = weight;
             this.speed = speed;
-            // song, chet
             this.status = status;
         }
 
@@ -33,28 +32,26 @@
 
         catch(ratObj) {
             if (this.speed > ratObj.speed) {
-                console.log(this.name + ' da bat duoc chuot ' + ratObj.name);
+                console.log(this.name + ' đã bắt được ' + ratObj.name);
+                console.log(ratObj.growl); //khó hiẻu
                 this.eat(ratObj);
             } else {
-                console.log('Chuot chay roi, meo cham qua :))');
+                console.log('Chạy không lại');
             }
         }
 
         eat(ratObj) {
-            if (ratObj.status == 'song') {
+            if (ratObj.status === true) {
                 this.weight += ratObj.weight;
-                console.log(this.name + ' khoi luong da tang: ' + this.weight)
+                console.log(this.name + ' khối lượng đã tăng: ' + this.weight)
             } else {
-                console.log('Chuot hoi qua, khong an duoc :(');
+                console.log('chuột đã chết');
             }
         }
     }
 
-    let ratJerry = new Rat('Jerry', 10, 5, 'chet');
-    let catTom = new Cat('Tom', 15, 6);
-
-    ratJerry.growl();
-    catTom.growl();
+    let ratJerry = new Rat('Mèo', 10, 7, true);
+    let catTom = new Cat('Chuột', 15, 10);
 
     catTom.catch(ratJerry);
 </script>

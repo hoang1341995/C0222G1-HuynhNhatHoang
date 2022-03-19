@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Phát triển ứng dụng nhỏ mô phỏng câu chuyện Adam và Eva</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Apple {
+        constructor(weight) {
+            this.weight  = weight;
+        }
+        getWeight(){
+            return this.weight;
+        }
+        decrease(){
+            this.weight--;
+        }
+    }
+    class Human{
+        constructor(name,gender,weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
+        checkApple(obApple){
+            return `khối lượng của táo là ${obApple.getWeight()}`;
+        }
+        eat(obApple){
+            if (obApple.weight >0){
+            obApple.decrease();
+            this.weight++;
+            return `đã ăn táo, khối lượng ${this.name} là ${this.weight}`;
+            }else{
+                return `đã hết táo`;
+            }
+        }
+        say(string){
+            return `${this.name} nói ${string}`;
+        }
+        getName(){
+            return `${this.name}`;
+        }
+        setName(string){
+            this.name = string;
+            return `đã đổi tên thành ${this.name}`;
+        }
+        getWeight(){
+            return this.weight;
+        }
+        setWeight(int){
+            this.weight = int;
+            return `đã đổi khối lượng thành ${this.weight}`;
+        }
+    }
+    let human = new Human("Adam",true,80);
+    let apple = new Apple(10);
+    //console.log(human.checkApple(apple)); //kiểm tra táo
+    console.log(human.eat(apple));
+</script>
+</html>

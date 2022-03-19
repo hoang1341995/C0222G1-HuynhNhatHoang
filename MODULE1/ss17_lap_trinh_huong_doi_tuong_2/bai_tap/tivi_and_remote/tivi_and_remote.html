@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[*Bài tập] Phát triển chương trình sử dụng Remote để điều khiển Tivi</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Tivi {
+        constructor(channel, volume, status) {
+            this.channel = channel;
+            this.volume = volume;
+            this.status = status;
+        }
+
+        changeChannel(channel) {
+            if (this.status) {
+                this.channel = channel;
+                return `Channel is ${this.channel}`;
+            } else {
+                return `Tivi is off`;
+            }
+        }
+
+        changeVolume(volume) {
+            if (this.status) {
+                this.volume = volume;
+                return `Tivi's volume is ${this.volume}`;
+            } else {
+                return `Tivi is off`;
+            }
+        }
+
+    }
+
+    class Remote {
+        constructor(tivi) {
+            this.tivi = tivi;
+        }
+
+        onTivi() {
+            this.tivi.status = true;
+            return `Status tivi ${this.tivi.status}`;
+        }
+
+        offTivi() {
+            this.tivi.status = false;
+            return `Status tivi ${this.tivi.status}`;
+        }
+
+        changeChannel(channel) {
+            if (this.tivi.status) {
+                this.tivi.channel = channel;
+                return `Channel is ${this.tivi.channel}`;
+            } else {
+                return `Tivi is off`;
+            }
+        }
+
+        changeVolume(volume) {
+            if (this.tivi.status) {
+                this.tivi.volume = volume;
+                return `Tivi's volume is ${this.tivi.volume}`;
+            } else {
+                return `Tivi is off`;
+            }
+        }
+
+    }
+
+    let tivi = new Tivi(1, 20, true) //channel 1, volume 20, status false.
+    let remote = new Remote(tivi);
+    console.log(remote.changeVolume(100));
+
+</script>
+</html>
