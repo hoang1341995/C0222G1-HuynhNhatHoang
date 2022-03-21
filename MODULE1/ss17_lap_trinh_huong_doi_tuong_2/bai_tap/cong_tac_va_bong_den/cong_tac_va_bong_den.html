@@ -13,9 +13,11 @@
             this.status = status;
         }
         turnOn(){
+            this.status = true;
             return this.status;
         }
         turnOff(){
+            this.status = false;
             return this.status;
         }
     }
@@ -24,8 +26,8 @@
             this.status = status;
             this.lamp = lamp;
         }
-        connectToLamp(ElectricLamp){
-            return ElectricLamp.status
+        connectToLamp(){
+            return this.lamp.status
         }
         switchOff(){
             this.lamp.status = false;
@@ -42,6 +44,7 @@
     let switchButton = new SwitchButton(false,electricLamp);
     console.log(switchButton.switchOn());
     console.log(electricLamp.status)
+
 
 </script>
 </html>
