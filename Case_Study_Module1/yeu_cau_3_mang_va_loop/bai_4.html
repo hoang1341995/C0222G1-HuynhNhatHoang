@@ -2,9 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Bài 4: Viết một chương trình nhập một số từ bàn phím và in ra màn hình bằng chữ. Ví dụ 1234, kết quả in ra
+        màn hình là một hai ba bốn.</title>
 </head>
 <body>
-$END$
+Bài 4: Viết một chương trình nhập một số từ bàn phím và in ra màn hình bằng chữ. Ví dụ 1234, kết quả in ra màn hình là
+một hai ba bốn.<br><br>
+<input type="text" name="input" id="input" oninput="myFunction()" placeholder="Nhập vào dãy số">
+<p id="showMessage"></p>
+<script>
+    let arrayString = ["một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín", "không"];
+    let arrayNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    let newString = "";
+
+    function myFunction() {
+        let input1 = document.getElementById('input').value;
+        let newArray = input1.split("");
+        for (let i = 0; i < newArray.length; i++) {
+            if (arrayNumber.indexOf(parseInt(newArray[i])) !== -1) {
+                newString += arrayString[arrayNumber.indexOf(parseInt(newArray[i]))] + " ";
+            } else {
+                newString += newArray[i];
+            }
+        }
+        document.getElementById('showMessage').innerHTML = newString;
+        newString = "";
+    }
+</script>
 </body>
 </html>

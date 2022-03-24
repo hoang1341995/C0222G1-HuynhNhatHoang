@@ -2,9 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>bài 1</title>
 </head>
 <body>
-$END$
+Bài 1: Viết một hàm chuẩn hóa xâu ký tự: biến đổi xâu ký tự thành xâu sao cho trong xâu không có 2 dấu cách liền nhau và bắt đầu mỗi từ phải in hoa.<br><br>
+
+<script>
+    function formatString(string1){
+        string1 = string1.toLowerCase();
+        let array1 = [];
+        let max = 0;
+        let maxString = "";
+        array1 = string1.split(" ");
+        for (let i = 0; i < array1.length;) {
+            if (array1[i].length > max){
+                max = array1[i].length;
+                maxString = array1[i];
+            }
+            if (array1[i] === "") {
+                array1.splice(i, 1);
+            }else{
+                i++;
+            }
+        }
+        for (let i = 0;i<array1.length;i++){
+            let newArray = array1[i].split("");
+            newArray[0] = newArray[0].toUpperCase();
+            array1[i]= newArray.join("");
+        }
+        console.log(array1)
+        return array1.join(" ")+"<br>"+maxString;
+    }
+    let string = prompt("Nhập chuỗi:");
+    document.write(string+"<br>");
+    document.write(formatString(string));
+
+</script>
+
 </body>
 </html>

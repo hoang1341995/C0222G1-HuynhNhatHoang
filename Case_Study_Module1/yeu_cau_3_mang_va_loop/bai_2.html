@@ -2,9 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>bài 2</title>
 </head>
 <body>
-$END$
+Bài 2: Cho 2 mảng A và B chứa số nguyên. <br>Tìm ra một mảng đã được sắp xếp chứa các phần tử xuất hiện trong mảng B nhưng lại không xuất hiện A<br><br>
+ArrayA = [7,2,5,3,5,3] ;<br>
+ArrayB = [7,2,5,4,6,3,5,3,9,9] ;<br>
+<script>
+    let ArrayA = [7,2,5,3,5,3] ;
+    let ArrayB = [7,2,5,4,6,3,5,3,9,9];
+    let ArrayC = [];
+    let ArrayD = new Array(1);
+    for (let i=0;i<ArrayB.length;i++){
+        if (ArrayA.indexOf(ArrayB[i]) !== -1){
+            ArrayA.splice(ArrayA.indexOf(ArrayB[i]),1);
+        }else{
+            ArrayC.push(ArrayB[i]);
+        }
+    }
+   // alert(ArrayC)
+    ArrayD[0] = ArrayC[0];
+    let count = 1;
+    for (let i = 1; i <ArrayC.length ; i++) {
+        let check = 0;
+        for (let j = 0; j < count ; j++) {
+            if(ArrayC[i] === ArrayD[j]){
+                check++;
+            }
+            if(check === 0 && count-1 === j){
+                ArrayD.push(ArrayC[i])
+                count++;
+            }
+        }
+    }
+
+    document.write(`missingValue(A, B) = [${ArrayD}]`);
+</script>
 </body>
 </html>

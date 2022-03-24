@@ -2,9 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>bai 5</title>
 </head>
 <body>
-$END$
+
+<input type="button" name="button" id="button" onclick="myFunction()" value="Đặt nước">
+<br>
+<table>
+    <tr>
+        <td>STT</td>
+        <td>TÊN NƯỚC</td>
+        <td>GIÁ</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Cafe</td>
+        <td>15,000</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Cam vắt</td>
+        <td>25,000</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Nước ép cà rốt</td>
+        <td>20,000</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Nước ép cà chua</td>
+        <td>20,000</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Nước lọc</td>
+        <td>10,000</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Nước dừa</td>
+        <td>15,000</td>
+    </tr>
+</table>
+Nhập số 7 để thanh toán
+<p id="showMessage"></p>
+<script>
+    let Array1 = ['Cafe', 'Cam vắt', 'Nước ép cà rốt', 'Nước ép cà chua', 'Nước lọc', 'Nước dừa'];
+    let Array2 = [15000, 25000, 20000, 20000, 10000, 15000];
+    let total = 0;
+    function myFunction() {
+        while (true){
+            let input1 = parseInt(prompt(`Nhập số thứ tự`));
+            input1--;
+            if (input1>=0&&input1<6){
+                let count = parseInt(prompt(`Nhập số lượng`));
+                total += Array2[input1]*count;
+            }else if(input1 === 6){
+                alert(total.toLocaleString()+" VND");
+                total = 0;
+                break;
+            }else{
+                alert("Số thứ tự không có trong menu");
+            }
+        }
+    }
+</script>
 </body>
 </html>

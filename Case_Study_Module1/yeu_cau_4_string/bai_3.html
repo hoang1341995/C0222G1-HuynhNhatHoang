@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Cho hai xâu kí tự, tìm số lượng kí tự chung giữa chúng.</title>
 </head>
 <body>
-$END$
+Cho hai xâu kí tự, tìm số lượng kí tự chung giữa chúng.<br><br>
+<script>
+    function checkString(string1, string2) {
+        let array1 = [];
+        for (let i = 0; i < string1.length; i++) {
+            for (let j = 0; j < string2.length; j++) {
+                if (string1[i] === string2[j]) {
+                    array1.push(string1[i]);
+                    string2 = string2.replace(string2[j], '');
+                    break;
+                }
+            }
+
+        }
+
+        return "so luong "+array1.length+" |   "+array1.join(" ");
+    }
+
+    let string1 = 'aabcc';
+    let string2 = 'adcaa';
+    alert(checkString(string1, string2));
+</script>
 </body>
 </html>

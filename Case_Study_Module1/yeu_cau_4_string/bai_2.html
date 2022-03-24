@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Bài 2: Cho xâu kí tự. Hãy đếm số lượng kí tự khác nhau trong xâu đó</title>
 </head>
 <body>
-$END$
+Bài 2: Cho xâu kí tự. Hãy đếm số lượng kí tự khác nhau trong xâu đó<br><br>
+<script>
+    let newString = "asdfqweasdasdy";
+    function formatString(string1) {
+        let array1 = string1;
+        let array2 = [];
+        for (let i = 1; i < array1.length; i++) {
+            if (array2.indexOf(array1[i]) === -1){
+                array2.push(array1[i]);
+            }
+        }
+        return array2;
+    }
+
+    alert(formatString(newString).length + " kí tự: " + formatString(newString))
+
+</script>
 </body>
 </html>

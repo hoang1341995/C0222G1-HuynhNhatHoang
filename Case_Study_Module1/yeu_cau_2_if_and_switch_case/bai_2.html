@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>bai2</title>
 </head>
 <body>
-$END$
+Bài 2: Viết chương trình kiểm tra một ký tự trong bảng chữ cái tiếng anh là nguyên âm hay phụ âm. Ký tự là bất kỳ được nhập từ bàn phím. Các ký tự nguyên âm bao gồm: 'o', 'u', 'i', 'a', 'e' hoặc 'O', 'U', 'I', 'A', 'E'<br>
+<input type="text" name="input1" id="input1" oninput="myFunction()" placeholder="Nhập vào 1 ký tự">
+<p id="showMessage"></p>
+<script>
+    function myFunction() {
+        let input1 = document.getElementById('input1').value;
+        let input2 = input1.toLowerCase();
+        let Array1 = ["o","u","i","a","e",];
+        if (isNaN(input1) === false) {
+            document.getElementById('showMessage').innerHTML = "";
+        } else {
+            if (Array1.indexOf(input2)!== -1) {
+                document.getElementById('showMessage').innerHTML = `${input1} là nguyên âm`;
+            }else{
+                document.getElementById('showMessage').innerHTML = `${input1} không phải nguyên âm`;
+            }
+        }
+    }
+
+</script>
 </body>
 </html>

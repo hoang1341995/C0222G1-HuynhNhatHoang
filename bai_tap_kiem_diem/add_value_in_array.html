@@ -2,9 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+from[12,34,54,65f,34s,63a,46d]<br>
+
+<div>
+    <input type="text" id="input1" placeholder="Nhập số cần thay">
+    <input type="text" id="input2" placeholder="vị trí">
+    <input type="button" id="button" value="submit" onclick="myFunction()">
+    <p id="showMessage"></p>
+</div>
+<script>
+    function myFunction() {
+        let input1 = document.getElementById('input1').value;
+        let input2 = parseInt(document.getElementById('input2').value);
+        let array1 = [12, 34, 54, 65, 34, 63, 46];
+        let newArray1 = new Array(array1.length);
+        if (input2 > (array1.length - 1)) {
+            alert("vị trí không chính xác");
+        } else {
+            for (let i = 0; i < array1.length; i++) {
+                    if (i === input2){
+                        newArray1[i]=input1;
+                    }else{
+                        newArray1[i] = array1[i];
+                    }
+            }
+        }
+        document.getElementById('showMessage').innerHTML = newArray1;
+    }
+</script>
 </body>
 </html>

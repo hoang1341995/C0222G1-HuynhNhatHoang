@@ -2,9 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>bai2</title>
 </head>
 <body>
-$END$
+Viết hàm liệt kê các số nguyên tố trong mảng 2 chiều, đếm các số nguyên tố có trong mảng đó.<br>
+<script>
+    function mathFunction(m, n) {
+        let array1 = new Array(m);
+        let newArray = [];
+        for (let i = 0; i < array1.length; i++) {
+            array1[i] = new Array(n);
+        }
+        for (let i = 0; i < array1.length; i++) {
+
+            for (let j = 0; j < array1[i].length; j++) {
+                array1[i][j] = parseInt(prompt(`Nhập giá trị cho phần tử ${i},${j}`));
+                if (isPrimeNumber(array1[i][j])){
+                    newArray.push(array1[i][j]);
+                }
+            }
+        }
+        console.log(array1);
+        return newArray;
+    }
+
+    function isPrimeNumber(number) {
+        let count = 0;
+
+        for (let i = 1; i <= number; i++) {
+            if (number % i === 0) {
+                count++;
+            }
+        }
+
+        if (count === 2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    let m = parseInt(prompt("Nhập M"));
+    let n = parseInt(prompt("Nhập N"));
+    console.log(mathFunction(m, n));
+</script>
 </body>
 </html>

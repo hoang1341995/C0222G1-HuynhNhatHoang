@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Bài 3: Cho một danh sách các phân số, hãy tìm chỉ số của phân số lớn nhất (đếm từ 0)</title>
 </head>
 <body>
-$END$
+Bài 3: Cho một danh sách các phân số, hãy tìm chỉ số của phân số lớn nhất (đếm từ 0)<br><br>
+let Array1 = [6,16,4,3,8,9];<br>
+let Array2 = [9,8,3,4,4,6];<br>
+<script>
+    let Array1 = [6,16,4,3,8,9];
+    let Array2 = [9,8,3,4,4,6];
+    let max = Array1[0]/Array2[0];
+    let b = 0;
+    let string1 = "";
+    for (let i=1;i<Array1.length;i++){
+        if ((Array1[i]/Array2[i])>max){
+            max = Array1[i]/Array2[i];
+            stirng1 = Array1[i]+"/"+Array2[i];
+            b = i;
+        }
+    }
+    document.write(`${stirng1} là phân số lớn nhất, có chỉ số là ${b}`)
+</script>
 </body>
 </html>

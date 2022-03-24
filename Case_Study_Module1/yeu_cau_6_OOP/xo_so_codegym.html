@@ -2,9 +2,139 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>xổ số codegym</title>
 </head>
+<style>
+    input {
+        width: 20px;
+        text-align: center;
+    }
+
+    .blue-input {
+        background-color: deepskyblue;
+        color: white;
+        font-weight: bold;
+    }
+</style>
 <body>
-$END$
+Xổ số CodeGym<br><br>
+<div id="ticket">
+</div>
+<br>
+<br>
+<div>
+    <button type="button" id="buyTicket" onclick="buyTicket()">Mua vé</button>
+    <button type="button" id="checkResult" onclick="checkResult()">Kiểm tra kết quả</button>
+    <p id="showTottery"></p>
+    <p id="showTotteryText"></p>
+
+</div>
+<script>
+    let ticket = 0;
+    let codeHtml = "";
+    let arrayTicket = new Array(4);
+    let check1 = "";
+    let checkTicketText = [0, 0, 0, 0];
+    let lottery = [Math.floor((Math.random() * 98) + 1), Math.floor((Math.random() * 98) + 1), Math.floor((Math.random() * 98) + 1), Math.floor((Math.random() * 98) + 1), Math.floor((Math.random() * 98) + 1), Math.floor((Math.random() * 98) + 1)].sort(function (a, b) {
+        return a - b
+    });
+
+    console.log(lottery);
+    for (let i = 0; i < arrayTicket.length; i++) {
+        arrayTicket[i] = new Array(6);
+    }
+
+    function checkResult() {
+        check1 = "blue-input";
+        codeHtml = "";
+        displayReload();
+        codeHtml = "";
+        document.getElementById('showTottery').innerHTML = lottery;
+        checkShowMessage();
+    }
+
+    function checkShowMessage() {
+        for (let i = 0; i < lottery.length; i++) {
+            for (let j = 0; j < arrayTicket.length; j++) {
+                for (let k = 0; k < arrayTicket[j].length; k++) {
+                    if (arrayTicket[j][k] === lottery[i]){
+                        checkTicketText[j]++;
+                    }
+                }
+            }
+        }
+        console.log(checkTicketText)
+        let text1 = "";
+        for (let i = 0; i < checkTicketText.length; i++) {
+            if (checkTicketText[i] === 6&&arrayTicket[i][0] !== undefined) {
+                text1 += `vé số ${(i + 1)} trúng Jackpot 6 số<br>`;
+            } else if (checkTicketText[i] === 5&&arrayTicket[i][0] !== undefined) {
+                text1 += `vé số ${(i + 1)} trúng 5 số<br>`;
+            } else if (checkTicketText[i] === 4&&arrayTicket[i][0] !== undefined) {
+                text1 += `vé số ${(i + 1)} trúng 4 số<br>`;
+            } else if (checkTicketText[i] === 3&&arrayTicket[i][0] !== undefined) {
+                text1 += `vé số ${(i + 1)} trúng 3 số<br>`;
+            } else  if (checkTicketText[i] === 2&&arrayTicket[i][0] !== undefined||checkTicketText[i] === 1&&arrayTicket[i][0] !== undefined||checkTicketText[i] === 0&&arrayTicket[i][0] !== undefined){
+                text1 += `vé số ${(i + 1)} không trúng<br>`;
+            }
+        }
+        document.getElementById('showTotteryText').innerHTML = text1;
+        checkTicketText = [0, 0, 0, 0];
+
+    }
+
+    function buyTicket() {
+        if (ticket === 4) {
+            alert("chỉ mua tối đa 4 vé");
+        } else {
+            ticket++;
+            displayReload();
+            codeHtml = "";
+        }
+    }
+
+    function addNumber(value, value2) {
+        let sum = `${value}${value2}`;
+        arrayTicket[value][value2] = parseInt(document.getElementById(sum).value);
+        console.log(arrayTicket)
+    }
+    function displayReload() {
+        let showBackgroundNumberTottery = "";
+
+        for (let j = 0; j < ticket; j++) {
+            codeHtml += `Vé ${j + 1}: `;
+            for (let i = 0; i < 6; i++) {
+                arrayTicket[j].sort(function (a, b) {
+                    return a - b
+                });
+                codeHtml += `<input class="${(checkTicket(arrayTicket[j][i], j) ? check1 : "")}" type="text" id="${j}${i}" maxlength="2" value="${(arrayTicket[j][i] === undefined || isNaN(arrayTicket[j][i]) ? "" : arrayTicket[j][i])}" oninput="addNumber(${j},${i})" ${(checkTicket(arrayTicket[j][i]) ? "disabled" : "")}> `;
+            }
+            codeHtml += `<button type="button" id="random${j}" onclick="random(${j})">Ngẫu nhiên</button><br><br>`;
+            document.getElementById('ticket').innerHTML = codeHtml;
+        }
+    }
+
+    function checkTicket(value, number) {
+        for (let i = 0; i < 6; i++) {
+            if (value === lottery[i]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function random(value) {
+        for (let i = 0; i < arrayTicket[value].length; i++) {
+            if (arrayTicket[value][i] === undefined || isNaN(arrayTicket[value][i])) {
+                arrayTicket[value][i] = Math.floor((Math.random() * 98) + 1);
+                document.getElementById(value + "" + (i)).value = arrayTicket[value][i];
+                break;
+            }
+        }
+        displayReload();
+        codeHtml = "";
+        console.log(arrayTicket)
+    }
+</script>
 </body>
 </html>

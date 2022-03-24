@@ -2,9 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>bai 3</title>
 </head>
 <body>
-$END$
+Viết hàm tìm giá trị lớn nhất, nhỏ nhất trong mảng 2 chiều<br>
+<script>
+    function mathFunction(m, n) {
+        let array1 = new Array(m);
+        for (let i = 0; i < array1.length; i++) {
+            array1[i] = new Array(n);
+        }
+        for (let i = 0; i < array1.length; i++) {
+            for (let j = 0; j < array1[i].length; j++) {
+                array1[i][j] = parseInt(prompt(`Nhập giá trị cho phần tử ${i},${j}`));
+            }
+        }
+        let min = array1[0][0];
+        let max = array1[0][0];
+        for (let i = 0; i < array1.length; i++) {
+            for (let j = 0; j < array1[i].length; j++) {
+                if (min>array1[i][j]){
+                    min = array1[i][j];
+                }
+                if (max<array1[i][j]){
+                    max = array1[i][j];
+                }
+            }
+        }
+        console.log(array1);
+        return `min: ${min}, max: ${max}`;
+    }
+    let m = parseInt(prompt("Nhập M"));
+    let n = parseInt(prompt("Nhập N"));
+    console.log(mathFunction(m, n));
+</script>
 </body>
 </html>

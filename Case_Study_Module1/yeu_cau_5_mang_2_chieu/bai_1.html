@@ -2,9 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>bai1</title>
 </head>
 <body>
-$END$
+Viết hàm tính tổng các số chẵn trong ma trận có kích thước m*n. Với m, n là các số nhập từ bàn phím.<br>
+<script>
+    function mathFunction(m, n) {
+        let total = 0;
+        let array1 = new Array(m);
+        for (let i = 0; i < array1.length; i++) {
+            array1[i] = new Array(n);
+        }
+        for (let i = 0; i < array1.length; i++) {
+
+            for (let j = 0; j < array1[i].length; j++) {
+                array1[i][j] = parseInt(prompt(`Nhập giá trị cho phần tử ${i},${j}`));
+                if (array1[i][j]%2 ===0){
+                 total += array1[i][j];
+                }
+            }
+        }
+        console.log(array1);
+        return total;
+    }
+
+    let m = parseInt(prompt("Nhập M"));
+    let n = parseInt(prompt("Nhập N"));
+    console.log(mathFunction(m, n));
+</script>
 </body>
 </html>

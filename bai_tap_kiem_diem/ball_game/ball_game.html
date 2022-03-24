@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bouncy Ball</title>
+    <style></style>
+</head>
+
+<body>
+<canvas id="gameCanvas" width="400" height="300"></canvas>
+<script>
+    const FPS = 100;
+    var sizeBall = 10;
+    var bx, by;
+    var xv, yv;
+    let rack1 = 200
+    let rack2 = 100
+    var canvas, context;
+    let second = 1000;
+
+
+    canvas = document.getElementById("gameCanvas");
+    context = canvas.getContext("2d");
+
+
+    setTimeout(update, second / FPS);
+
+
+    bx = canvas.width /2;
+    //alert(bx)
+    by = canvas.height /2;
+    //alert(canvas.height)
+    //alert(Math.floor(Math.random() * 2))
+    // random speed ball
+    xv = Math.floor(Math.random() * 76 + 25) / FPS;
+    yv = Math.floor(Math.random() * 76 + 25) / FPS;
+    // alert(xv)
+    //alert(yv)
+    // random ball
+    if (Math.floor(Math.random() * 2) === 0) {
+        //alert(Math.floor(Math.random() * 2))
+        xv = -xv;
+    }
+    if (Math.floor(Math.random() * 2) === 0) {
+        yv = -yv;
+    }
+
+
+    function update() {
+        //xv++
+        //yv++
+        bx += xv;
+        by += yv;
+        //console.log(by)
+        // dieu kien cham
+        if (bx - sizeBall / 2 < 0 && xv < 0) {  //width 0 left
+            xv = -xv; //1+
+            console.log(`bx:${bx}      xv:${xv} 1`)
+        }
+        if (bx + sizeBall / 2 > canvas.width && xv > 0) {   //width 400 right
+            xv = -xv; //2-
+            console.log(`bx:${bx}      xv:${xv} 2`)
+        }
+        if (by - sizeBall / 2 < 0 && yv < 0) {  //height 0 top
+            yv = -yv; //3+
+            console.log(`by:${by}      xv:${yv} 3`)
+        }
+        if (by + sizeBall / 2 > canvas.height && yv > 0) { //height 300 down
+            yv = -yv; //4-
+            console.log(`by:${by}      xv:${yv} 4`)
+        }
+
+        window.addEventListener("keydown", keys, false);
+
+        context.fillStyle = "black";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = "yellow";
+        //context.fillRect(bx - sizeBall / 2, by - sizeBall / 2, sizeBall, sizeBall);
+        context.rect(rack1,250,50,10);
+        context.fillStyle = "red";
+        context.fill();
+        setTimeout(update, second / FPS);
+    }
+
+    function keys(event) {
+        console.log(event.keyCode);
+        if (event.keyCode === 37) {
+            rack1 -= 50;
+        }
+        if (event.keyCode === 39) {
+            rack1 += 50;
+        }
+    }
+</script>
+</body>
+</html>
